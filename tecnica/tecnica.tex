@@ -1,0 +1,369 @@
+\documentclass{hipatia}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+%Use \DeclareMathOperator para definir novos
+% operadores para o modo matemático
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+
+%Evite numerar teoremas
+%Prefira nomeá-los
+%Use os ambientes abaixo
+\newtheorem{theorem*}{Teorema}
+\newtheorem{lemma*}{Lema}
+
+% Evite títulos muito longos
+\title{Um Passeio com Primos e \\ Outros Caras Bacanas}
+% Se for necessário diminuir a fonte do título 
+% para caber no quadro, use
+% \title{ \fontsize{28}{28}\selectfont Uma Nova Demonstração do\\  \fontsize{28}{28}\selectfont Teorema de Pitágoras}
+
+% O Subtítulo é o nome da seção da revista
+% Deve ser uma palavra de origem grega
+\subtitle{Técnica}
+\author{Rafael Filipe dos Santos}
+% A data não é necessária
+%\date{October 2023}
+% Não se preocupe com a numeração
+% das páginas ou com o número da edição
+
+% Problema
+\newcounter{exno}
+\def\prob{\goodbreak
+   \addvspace{2.5ex plus .3ex}%
+   \addtocounter{exno}{1}%
+   \noindent%\llap{\manual\char'170\rm\kern.15em}%
+   {\bfseries Problema~\arabic{exno}.\ }%\par\nobreak
+   \noindent\ignorespaces
+}
+
+\begin{document}
+\setcounter{page}{\tecnicapage}
+\maketitle
+
+\section{Introdução}
+
+A infinitude dos números primos é um fato conhecido desde a Antiguidade, cuja demonstração mais célebre remonta ao argumento clássico de Euclides.
+
+\begin{theorem*}\label{thm:euclides}[Euclides] Existem infinitos primos.
+\end{theorem*}
+
+\begin{proof}[Prova]
+Suponha por absurdo que haja um número finito de primos e sejam $p_1, p_2, \ldots, p_k$ todos os primos. Considere o número $N=p_1p_2\ldots p_k + 1$ e observe que, pelo teorema fundamental da aritmética, $N$ possui algum fator primo $p_j$. Mas então $p_j$ divide $N-p_1\cdot p_2 \ldots p_k = 1$, um absurdo.    
+\end{proof}
+
+E se quisermos provar que existem infinitos primos em uma certa progressão aritmética? Por exemplo, será que existem infinitos primos da forma $4k+1$? A resposta é afirmativa e é possível adaptar a ideia de Euclides!
+
+\begin{theorem*}\label{thm:4k+1}
+Existem infinitos números primos da forma $4k+1$, com $k \in \Z$.
+\end{theorem*}
+
+\begin{proof}[Prova]
+Suponha por absurdo que haja um número finito de primos e sejam $p_1, p_2, \ldots, p_k$ todos os primos congruentes a $1$ módulo $4$. Considere o número
+\[N=(p_1p_2\ldots p_k)^2 + 1.\]
+Sabemos que todo número da forma $x^2+1$ com $x>1$ possui um fator primo congruente a $1$ módulo $4$. Logo, $N$ deve possuir algum fator primo $p_j$. Mas então $p_j$ divide $N-(p_1p_2\ldots p_k)^2=1$, um absurdo.
+\end{proof}
+
+Um questionamento interessante é se é possível generalizar as ideias das soluções acima para mostrar que existem infinitos primos em uma progressão aritmética mais geral, da forma $ak+b$ com $a$ e $b$ inteiros fixados tais que $\text{mdc}(a,b)=1$? Note que a condição de $a$ e $b$ serem primos entre si é necessária, pois do contrário qualquer fator comum de $a$ e $b$ dividiria $ak+b$.
+
+A resposta para essa pergunta é afirmativa e é o famoso \textit{teorema de Dirichlet}, provado em $1837$.
+
+\begin{theorem*}[Dirichlet, 1837] Sejam $a$ e $b$ inteiros positivos com $\text{mdc}(a,b)=1$. Existem infinitos números primos da forma $ak+b$, com $k \in \Z$.
+\end{theorem*}
+
+As principais demonstrações desse teorema utilizam variáveis complexas e não vão na linha dos argumentos apresentados acima.
+
+O objetivo deste material é, inicialmente, apresentar alguns contextos em que os argumentos utilizados nas demonstrações dos Teoremas~\ref{thm:euclides} e \ref{thm:4k+1} se mostram particularmente interessantes. Em seguida, mudamos ligeiramente o foco para discutir resultados sobre os fatores primos de sequências mais gerais de inteiros. Por fim, comentamos alguns aspectos relevantes relacionados à distribuição dos números primos.
+
+\section{Primos em Uma Progressão Aritmética}
+
+Nesta seção discutiremos de modo mais aprofundado alguns pontos por trás das demonstrações de Euclides e do caso $4k+1$ apresentadas acima. 
+
+Para adaptar as ideias para o caso $ak+b$, podemos procurar um polinômio $f(x) \in \Z[x]$ para o qual $f(m)$ possua algum fator da forma $ak+b$ para todo $m$ suficientemente grande. No caso da prova de Euclides, como não temos restrições para o primo, usamos simplesmente $f(x)=x+1$. Já no segundo caso, foi fundamental escolher $f(x)=x^2+1$.
+
+Se existissem finitos primos da forma $ak+b$, digamos $p_1, p_2, \ldots, p_t$ e se existisse tal $f$ com a propriedade de que, para $m$ suficientemente grande, $f(m)$ sempre possui algum fator da forma $ak+b$, poderíamos tomar
+\[N=f((p_1p_2\ldots p_t)^\ell),\]
+com $\ell$ suficientemente grande de modo que $N>1$. Pela propriedade de $f$, concluiríamos que $N$ deve possuir algum fator primo $p_j$. Dessa forma, lembrando que $x-y \mid f(x) - f(y)$, concluímos que $p_j$ também divide $f((p_1p_2\ldots p_k)^\ell)-f(0)=N-f(0)$ e, portanto, $p_j$ divide $f(0)$. Isso em princípio não necessariamente produz uma absurdo, mas se encontrarmos $f$ tal que $f(0)=1$, resolvemos nosso problema chegando a uma contradição. 
+
+Uma outra opção seria encontrar $f$ tal que, para $m$ suficientemente grande, \textit{todos} os fatores primos de $f(m)$ sejam congruentes a $b$ módulo $a$, a exceção possivelmente de uma quantidade finita de primos, como ocorre em $f(x)=x^2+1$, para o caso $4k+1$. De fato, tomando $m_\ell=(Pp_1p_2\ldots p_t)^{\ell}$, em que $P$ é o produto dos primos que são possíveis exceções, observe que, para $\ell$ suficientemente grande, os expoentes da fatoração em primos de $f(m_\ell)$ estão limitados pelo expoente do termo independente $f(0)$ (podemos supor $f(0) \ne 0$, tomando $f$ irredutível em $\Z[x]$). Isso significa que a sequência $(a_\ell)$ definida por $a_\ell=|f(m_\ell)|$ é limitada. Porém, para $f$ não constante e $\ell$ arbitrariamente grande, ela deveria ``explodir''.
+
+A principal dificuldade dessas abordagens reside, em geral, na construção de polinômios com as propriedades desejadas. Ainda assim, essa ideia pode ser explorada em outros contextos. Encerramos a discussão apresentando um caso particularmente interessante em que tal abordagem é possível, a saber, a existência de infinitos primos da forma $nk+1$, para um inteiro positivo fixo $n$. A demonstração utiliza a noção de \textit{polinômios ciclotômicos}. Para saber mais a respeito, veja \cite{sanna2022survey}
+
+\begin{theorem*}
+Seja $n$ um inteiro positivo. Existem infinitos números primos da forma $nk+1$, com $k \in \Z$.
+\end{theorem*}
+
+\begin{proof}[Prova]
+Suponha que haja um número finito de primos congruentes a $1$ módulo $n$ e sejam $p_1, p_2, \ldots, p_k$ estes primos. Defina e defina $a=(np_1p_2\ldots p_k)^{\ell}$. Para definir o polinômio $f$, precisaremos recorrer aos polinômios ciclotômicos. Seja $\phi_n(x)$ o $n$-ésimo polinômio ciclotômico. Vamos mostrar que $\phi_n(a)$ possui um fator primo congruente a $1$ módulo $n$. Isso produz a contradição desejada, pois argumentando como anteriormente, se $q$ é um fator de $\phi_n(a)$ congruente a $1$ módulo $n$, teremos que $q \mid a$ e, como $a = a - 0 \mid \phi_n(a) - \phi_n(0)$, concluímos que $q \mid \phi_n(0)$, porém sabemos que $|\phi_n(0)|=1$.
+
+Na verdade, vamos mostrar algo mais forte: todo fator primo de $\phi_n(a)$ é congruente a $1$ módulo $n$. Observe primeiramente que podemos tomar $\ell$ suficientemente grande de modo que $|\phi_n(a)|>1$, para garantir que $\phi_n(a)$ tem pelo menos um fator primo. Seja então $q$ um fator primo de $\phi_n(a)$. Sabemos das propriedades de polinômios ciclotômicos que \[\prod_{d|n}\phi_d(x) = x^n - 1.\]
+Em particular, para $x=a$, temos que $q \mid a^n - 1$ e então, para mostrar que $q$ é congruente a $1$ módulo $n$, é suficiente verificar que $\text{ord}_q(a)=n$, pois, como pelo teorema de Fermat temos $a^{q-1} \equiv 1\pmod{q}$, segue que $q \equiv 1 \pmod n$.
+
+Suponha que $\text{ord}_q(a)=h \ne n$. Como $q\mid a^n - 1$, temos que $h \mid n$. Logo, a equação anterior implica que $x^n - 1=(x^h - 1)\phi_n(x)p(x)$ para algum polinômio $p(x)$. Analisando módulo $q$, podemos escrever $x^n - a^n \equiv (x^h - a^h)\phi_n(x)p(x) \pmod{q}$. Pela fatoração única em $\Z_q$, podemos cancelar um fator $(x-a)$ em ambos os lados, obtendo
+\[x^{n-1}+x^{n-2}a+\ldots+xa^{n-2}+a^{n-1} \]
+\[\equiv (x^{h-1}+x^{h-2}a+\ldots+xa^{h-2}+a^{h-1})\phi_n(x)p(x) \pmod{q}.\]
+Fazendo $x=a$ e lembrando que $q \mid \phi_n(a)$, concluímos que $na^{n-1} \equiv 0 \pmod{q}$, um absurdo, pois $q \mid a^n - 1$ e $n \mid a$, de modo que $\text{mdc}(na^{n-1},q)=1$. Isso conclui a demonstração.
+\end{proof}
+
+\section{Fatores Primos de uma Sequência}
+
+Uma forma alternativa e bastante útil de interpretar as ideias anteriores consiste em evitar o argumento por contradição, isto é, em vez de supor que há apenas um número finito de primos de uma dada forma, buscamos construir explicitamente uma sequência $(a_n)$ com a seguinte propriedade: para cada termo $a_n$, existe um primo $p_n \equiv b \pmod{a}$ tal que $p_n \mid a_n$ e $p_n \notin \{p_1,\ldots,p_{n-1}\}$. Dessa forma, garantimos a produção sucessiva de novos primos da forma desejada.
+
+Uma maneira natural de construir tal sequência é por meio de uma recorrência adequada do tipo $a_{n+1}=f(a_n)$. Por exemplo, na demonstração do caso $4k+1$, pode-se considerar a recorrência \[a_{n+1}=(a_1\cdots a_n)^2+1.\] Por indução, nota-se facilmente que $a_{n+1}=a_n^3-a_n^2+1$, com $a_1=5$. Dessa forma, teríamos $f(x)=x^3-x^2+1$.
+
+Diversas questões podem ser formuladas a respeito dos fatores primos de sequências de inteiros. Em muitos casos, é possível caracterizá-los, especialmente para sequências definidas por recorrências do tipo $a_{n+1}=f(a_n)$, em que $f$ é um polinômio bem compreendido.
+
+Outra questão natural consiste em determinar se o conjunto dos divisores primos dos termos da sequência é infinito. Um resultado clássico relacionado a esse problema é o \textit{teorema de Schur}.
+
+\begin{theorem*}
+(Schur) Seja $P(x) \in \Z[x]$ um polinômio não constante. Então o conjunto dos fatores primos da sequência $(a_n)$, definida por $a_n=P(n)$ é infinito.
+\end{theorem*}
+
+\begin{proof}[Prova]
+Suponha que exista apenas um número finito de primos que dividem algum termo da sequência e sejam $p_1, p_2, \ldots, p_k$ tais primos. Se $P(0)=0$, então $n\mid P(n)$ e o resultado é trivial. Suponha então $P(0) = m \ne 0$ e defina $n_\ell = (p_1p_2\ldots p_k)^{\ell}$, com $\ell > \max\{\nu_{p_1}(m), \ldots, \nu_{p_k}(m)\}$. Observe que $\nu_{p_i}(a_{n_\ell})=\nu_{p_i}(m)$, o que implica que $|a_{n_\ell}| \le m$, já que os fatores primos de $a_{n_\ell}$ pertencem ao conjunto $\{p_1, p_2, \ldots, p_k\}$. Mas tomando $\ell$ arbitrariamente grande, como $P$ é não constante, $|P(n_\ell)|=|a_{n_{\ell}}|$ fica eventualmente maior que $m$, um absurdo.
+\end{proof}
+
+Outro resultado relacionado é o \textit{teorema de Kobayashi}.
+
+\begin{theorem*}
+(Kobayashi) Seja $(x_n)$ uma sequência de inteiros positivos ilimitada cujo conjunto dos divisores primos é finito. Então, para todo inteiro $y \ne 0$, o conjunto dos fatores primos da sequência $(x_n+y)$ é infinito.
+\end{theorem*}
+
+Sua demonstração original recorre a ferramentas de geometria algébrica. Entretanto, existe uma abordagem alternativa baseada no \textit{teorema de Thue}.
+
+\begin{theorem*}
+(Thue) Seja $d \ge 3$ e $k \in \Z$. Se $f$ é um polinômio homogêneo irredutível de grau $d$, então existe uma quantidade finita de soluções inteiras para a equação $f(x,y)=k$. 
+\end{theorem*}
+
+Embora o teorema de Thue ainda não seja elementar por utilizar teoria de aproximações diofantinas, ele permite uma prova relativamente simples do teorema de Kobayashi. Finalizamos a seção apresentando tal demonstração.
+
+\begin{proof}[Prova do teorema de Kobayashi]
+Escreva $a_n=ax^3$ e $a_n + t = by^3$, com $a, b$ livre de cubos. Se $(a_n)$ e $(a_n+t)$ possuem uma quantidade finita de divisores primos, então há uma quantidade finita de possibilidades para $a$ e $b$, de modo que há uma quantidade finita de equações da forma $by^3-ax^3=t$. Mas então, pelo teorema de Thue, temos uma quantidade finita de soluções para essas equações e, em particular, uma quantidade finita de possibilidades para $x$, o que contradiz o fato de $(a_n)$ ser ilimitada.
+\end{proof}
+
+\subsection*{Exercícios}
+
+%\begin{multicols}{2}
+%\prob (OBM 2007 - N2) Mostre que existe um inteiro positivo $a$ tal que $\dfrac{a^{29}-1}{a-1}$ possui pelo menos $2007$ fatores primos distintos.
+
+\prob (OBM 2016 - N2) Seja $a_0=a>1$ um inteiro e, para $n \ge 0$, defina $a_{n+1}=2^{a_n}-1$. Mostre que o conjunto dos divisores primos dos termos da sequência $a_n$ é infinito.
+
+%\prob (IMO SL 2013) Prove que existem infinitos inteiros positivos $n$ tais que o maior divisor primo de $n^4 + n^2 + 1$ é igual ao maior divisor primo de $(n+1)^4 + (n+1)^2 + 1$.
+
+\prob (IMO SL 2009) Seja $f$ uma função não-constante dos inteiros positivos nos inteiros positivos tal que $a-b$ divide $f(a)-f(b)$ para quaisquer inteiros positivos $a$, $b$ distintos. Prove que existem infinitos números primos $p$ tais que $p$ divide $f(c)$ para algum inteiro positivo $c$.
+
+\prob (OIMU 2003) Prove que se $P(x)$ é um polinômio não constante com coeficientes inteiros, então existe $n$ inteiro tal que $P(n)$ tem mais de $2003$ fatores primos distintos.
+
+\prob (Ibero 2019) Sejam $a_1, a_2, \dots, a_{2019}$ inteiros positivos e $P$ um polinômio com coeficientes inteiros tal que, para todo o inteiro positivo $n$, $P(n)$ divide $a_1^n + a_2^n + \dots + a_{2019}^n$. Prove que $P$ é um polinômio constante.
+
+\prob (Irã 2011) Seja $P(x)$ um polinômio não nulo com coeficientes inteiros. Prove que existem infinitos primos $q$ tais que $q$ divide $2^n+P(n)$ para algum $n$ natural.
+
+%\prob (Bulgária 2025) Seja $P(x)$ um polinômio não constante, mônico, com coeficientes inteiros, e seja $a_1, a_2, \ldots$ uma sequência infinita de inteiros positivos. Prove que existem infinitos números primos, cada um dos quais divide pelo menos um termo da sequência $P(n)^{a_n} + 1$.
+
+%\prob Seja $k>1$ um inteiro. Mostre que a sequência $a_n = 1^n + 2^n + \ldots + k^n$ possui infinitos divisores primos.
+
+\prob (TST Irã 2024) Seja $\{a_n\}$ uma sequência de números naturais tal que todo número primo maior que $1402$ divide algum termo da sequência. Prove que o conjunto dos divisores primos dos termos da sequência $\{b_n\}$, definida por $b_n = a_1 a_2 \cdots a_n - 1$, é infinito.
+
+\prob (OBMU 2017) Fixados os inteiros positivos $a$ e $b$, mostre que o conjunto dos divisores primos dos termos da sequência $a_n=a\cdot 2017^n+b \cdot 2016^n$ é infinito.
+
+\section{Sobre a Distribuição dos Primos}
+
+Nesta seção vamos apresentar demonstrações para o \textit{postulado de Bertrand} e para provar o \textit{teorema de Chebyshev}. A prova do postulado de Bertrand apresentada é devida a Erd\H{o}s e os dois lemas utilizados também servem para provar o teorema de Chebyshev.
+
+No que segue, todos os logaritmos são na base natural. Sabendo da existência de infinitos números primos, torna-se natural procurar entender a respeito da \textit{distribuição} dos primos nos inteiros positivos. Mais precisamente, dado um inteiro positivo $n$, definindo $\pi(n)$ como a quantidade de números primos no conjunto $[n]=\{1,2,3,\ldots,n\}$, seria interessante entender o comportamento assintótico desta função. O teorema de Chebyshev responde essa pergunta, provando que $\pi(n)=\Theta(\frac{n}{\log n})$.
+
+\begin{theorem*}\label{thm:Chebyshev}
+(Chebyshev) Existem constantes positivas $c<C$ tais que para todo $x \ge 2$ vale
+\[c\frac{x}{\log x} < \pi(x) < C \frac{x}{\log x}.\]
+\end{theorem*}
+
+Outra pergunta bastante natural é a respeito do comportamento da quantidade de números primos em um certo intervalo $[f(n),g(n)]$. Por exemplo, como consequência do teorema de Chebyshev, podemos facilmente concluir que a quantidade de primos no intervalo $[n,an]$, com $a>1$ é pelo menos
+\[\pi(an) - \pi(n) \ge c\frac{an}{\log (an)} - C\frac{n}{\log n} = \big(ca-C+o(1)\big)\frac{n}{\log n}.\]
+Logo, quando $a>C/c$, conseguimos muitos primos em intervalos da forma $[n,an]$ para $n$ suficientemente grande. Na demonstração apresentada, teremos $C=5\log 2$ e $c=\frac{\log2}{2}$, o que implica $a>10$. Mas para valores menores de $a$, em princípio sequer sabemos se podemos garantir a existência um primo no intervalo para $n$ grande. O postulado de Bertrand responde essa pergunta quando $a=2$.
+
+\begin{theorem*}\label{thm:Bertrand}
+(Postulado de Bertrand) Seja $n$ um inteiro positivo. Existe um primo $p \in [n,2n]$.
+\end{theorem*}
+
+Antes de provar os Teoremas~\ref{thm:Chebyshev}~e~\ref{thm:Bertrand}, vamos enunciar dois lemas necessários para prová-los.
+
+\begin{lemma*}\label{aff:1}
+Sejam $n \in \Z_{>0}$ e $p$ um número primo. Seja $\theta_p$ o inteiro tal que $p^{\theta_p} \le 2n < p^{\theta_p+1}$. Então
+\[\nu_p\left(\binom{2n}{n}\right) \le\theta_p.\]
+Em particular, se $p>\sqrt{2n}$, então o expoente de $p$ em $\binom{2n}{n}$ é $1$, e se $\frac{2n}{3} < p < n$, então $p$ não divide $\binom{2n}{n}$.
+\end{lemma*}
+
+\begin{proof}[Prova]
+Observe que
+\begin{align*}
+    \nu_p\left(\binom{2n}{n}\right)&=\nu_p((2n)!)-2\nu_p(n!) \\
+    &=\sum_{i=1}^{\theta_p}\left(\left\lfloor{\frac{2n}{p^i}}\right\rfloor-2\left\lfloor{\frac{n}{p^i}}\right\rfloor\right)\le \theta_p,
+\end{align*}
+pois cada parcela é sempre $0$ ou $1$. Se $p>\sqrt{2n}$, temos que $\theta_p=1$ e o resultado segue. Além disso, se $\frac{2n}{3}<p<n$, é fácil ver que todas as parcelas são $0$ e então $p$ não divide $\binom{2n}{n}$.
+\end{proof}
+
+\begin{lemma*}\label{aff:2}
+Para todo inteiro positivo $n$, temos 
+\[\prod_{\substack{p \le n\\p\text{ primo}}}p \le 4^n.\]
+\end{lemma*}
+
+\begin{proof}[Prova]
+A prova segue por indução em $n$. Para $n$ pequeno o resultado é claro. Suponha válido para todo $k < n$. Se $n$ é par, temos que
+\[\prod_{\substack{p \le n\\p\text{ primo}}}p = \prod_{\substack{p \le n-1\\p\text{ primo}}}p \le 4^{n-1} < 4^n.\]
+Suponha então $n$ ímpar e seja $n=2m+1$. Observe que
+\begin{align*}
+    \prod_{\substack{p \le n\\p\text{ primo}}}p &= \prod_{\substack{p \le m+1\\p\text{ primo}}}p\cdot\prod_{\substack{m+2 \le p \le 2m+1\\p\text{ primo}}}p \\
+    &\le 4^{m+1}\binom{2m+1}{m+1} \le 4^{m+1}2^{2m}=4^n.
+\end{align*}
+A primeira desigualdade segue da hipótese de indução e do fato de todos os primos $p$ entre $m+2$ e $2m+1$ dividirem $\binom{2m+1}{m+1}$. A cota no binomial segue de $\sum_{i=1}^{2m+1} \binom{2m+1}{i}=2^{2m+1}$ e de $\binom{2m+1}{m+1}=\binom{2m+1}{m}$.
+\end{proof}
+
+Com esses dois resultados em mãos, podemos provar os Teoremas~\ref{thm:Chebyshev}~e~\ref{thm:Bertrand}. Ressaltamos que a prova do teorema de Bertrand apresentada é devida a Paul Erd\H{o}s.
+
+\begin{proof}[Prova do Teorema~\ref{thm:Bertrand}]
+Suponha que exista $n \ge 2$ para o qual não há primos no intervalo $[n,2n]$. Pelas Afirmações~\ref{aff:1}~e~\ref{aff:2}, junto com o fato de que até $\sqrt{2n}$ temos no máximo $\sqrt{2n}/2 - 1$ primos e que $p^{\theta_p} \le 2n$, temos que
+\begin{align*}
+\binom{2n}{n} &\le \prod_{\substack{p \le \sqrt{2n}\\p\text{ primo}}} p^{\theta_p} \cdot \prod_{\substack{\sqrt{2n}<p\le\frac{2n}{3}\\p\text{ primo}}}p \\ &=\prod_{\substack{p \le \sqrt{2n}\\p\text{ primo}}} p^{\theta_p} \cdot \prod_{\substack{p\le\frac{2n}{3}\\p\text{ primo}}}p\le(2n)^{\sqrt{2n}/2-1}\cdot4^{2n/3}.
+\end{align*}
+
+Por outro lado, pela relação de Stifel, temos que
+\begin{align*}
+    n\binom{2n}{n}&=n\binom{2n-1}{n}+n\binom{2n-1}{n-1} \\
+    &>(1+1)^{2n-1},    
+\end{align*}
+o que implica $\binom{2n}{n} > \frac{2^{2n-1}}{n}$. Concluímos então que
+\[\frac{2^{2n-1}}{n}<(2n)^{\sqrt{2n}/2-1}\cdot4^{2n/3} \iff 2^{2n/3} < (2n)^{\sqrt{n/2}}.\]
+Tomando logaritmo na base $2$, ficamos com a desigualdade $2\sqrt{2n}<3\log_2(n)+3$, que é falsa para todo $n \ge 50$. Portanto, para finalizar, basta verificar até $2\cdot50=100$ e não é difícil observar que os primos $2,5,11,23,47,79,101$ cobrem todos os intervalos da forma $[n,2n]$ com $1 \le n \le 50$.
+\end{proof}
+
+Agora vejamos a demonstração do teorema de Chebyshev.
+
+\begin{proof}[Prova do Teorema~\ref{thm:Chebyshev}]
+Basta mostrar uma cota inferior do tipo
+\[\pi(x) \ge c\frac{x}{\log x}\]
+para $x=2n$, pois $\pi(2n-1)=\pi(2n)$ e $\frac{x}{\log x}$ é crescente para $x \ge 3$. Vamos cotar a quantidade de número primos menores ou iguais a $2n$ pelos primos que dividem $\binom{2n}{n}$. Pela Afirmação~\ref{aff:1}, temos que
+\begin{align*}\label{eq:4}
+\binom{2n}{n}\le&\prod_{\substack{p \le 2n\\p\text{ primo}}} p^{\theta_p}\le (2n)^{\pi(2n)} \\
+\Rightarrow &\pi(2n) \ge \dfrac{\log\binom{2n}{n}}{\log (2n)} \ge \dfrac{n\log 2}{\log (2n)},
+\end{align*}
+em que a última desigualdade segue de 
+\begin{align*}
+    \binom{2n}{n}&=\binom{n}{0}^2+\ldots+\binom{n}{n}^2\\
+    &\ge\binom{n}{0}+\ldots+\binom{n}{n}=2^n.
+\end{align*}
+
+Portanto, concluímos que 
+\[\pi(2n) \ge  \dfrac{n\log 2}{\log (2n)} \Rightarrow \pi(x) \ge \frac{\log2}{2}\frac{x}{\log x}.\]
+Resta provarmos a cota superior. Veja que também temos
+\[\binom{2n}{n}=\binom{n}{0}^2+\ldots+\binom{n}{n}^2<\left(\binom{n}{0}+\ldots+\binom{n}{n}\right)^2=2^{2n}.\]
+Portanto, em particular, o produto dos primos entre $n$ e $2n$ é menor que $2^{2n}$ e então
+\begin{align*}
+n^{\pi(2n)-\pi(n)}<& \prod_{\substack{n<p\le 2n\\p\text{ primo}}}p<2^{2n}\\
+\iff &\pi(2n)-\pi(n) <\frac{2n\log 2}{\log n},
+\end{align*}
+o que implica, por indução, que
+\[\pi(2^{k+1}) \le \frac{5 \cdot 2^k}{k}.\]
+Finalmente, se $2^k < x \le 2^{k+1}$, temos que
+\[\pi(x) \le \pi(2^{k+1}) \le \frac{5\cdot 2^k}{k} \le 5\log2\frac{x}{\log x}.\qedhere\]
+\end{proof}
+
+Para concluir esta seção, apresentamos o celebrado teorema dos números primos, provado independentemente por Jacques Hadamard e Charles Jean de la Vallée Poussin, em 1896. Sua demonstração usual também utiliza variáveis complexas e não será apresentada aqui.
+
+\begin{theorem*}
+(Teorema dos Números Primos) Tem-se que
+\[\lim_{x \to \infty} \frac{\pi(x)}{x/\log x}=1.\]
+\end{theorem*}
+
+Em outras palavras, para todo $\varepsilon>0$, existe $n_0>0$ tal que se $n \ge n_0$, então
+\[(1-\varepsilon)\frac{n}{\log n} < \pi(n) < (1+\varepsilon)\frac{n}{\log n}.\]
+Em particular, para todo $n \ge n_0$, temos $\Theta(\frac{n}{\log n})$ primos no intervalo $[n, (1+\delta)n]$, com $\delta>0$ fixado.
+
+\section{A Soma dos Inversos dos Primos}
+
+Nesta seção apresentaremos uma demonstração sobre o fato bastante útil de que a série da soma dos inversos dos primos
+\[\frac{1}{2}+\frac{1}{3}+\frac{1}{5}+\ldots\]
+é divergente.
+
+Antes de apresentarmos o argumento, será útil discutir a demonstração de Erd\H{o}s para a infinitude dos números primos. Essa prova baseia-se, essencialmente, na noção de densidade nos inteiros positivos, cuja ideia pode ser descrita da seguinte forma: dado um inteiro positivo $M$, estimamos, em função de $M$, quantos números no intervalo $[1,M]$ satisfazem determinada propriedade. Ao fazer $M \to \infty$, buscamos compreender se há infinitos inteiros que a satisfazem (ou, alternativamente, que não a satisfazem).
+
+\begin{proof}[Segunda prova do Teorema~\ref{thm:euclides}]
+Suponha que a quantidade de primos seja finita e sejam $p_1, p_2, \ldots, p_k$. Fixado um inteiro $M$, escreva cada inteiro $m \in [1,M]$ na forma $m=ax^2$, com $a$ livre de quadrados. Observe que para $a$ temos $2^k$ possibilidades, pois cada $p_i$ pode aparecer ou não na fatoração dele. Por outro lado, para $x$ temos no máximo $\sqrt{M}$ possibilidades. Dessa forma, concluímos que $2^k\sqrt{M} \ge M$, o que equivale a $2^{2k} \ge M$. Mas como $M$ é qualquer, tomando $M>2^{2k}$, temos um absurdo.
+\end{proof}
+
+Com a ideia da prova anterior em mente, podemos agora apresentar a demonstração de Paul Erd\H{o}s de que a soma dos inversos dos primos diverge.
+
+\begin{theorem*}
+    A série
+    \[\sum_{p\text{ primo}}\frac{1}{p}=\frac{1}{2}+\frac{1}{3}+\frac{1}{5}+\ldots\]
+    diverge.
+\end{theorem*}
+
+\begin{proof}[Prova]
+Suponha que a série converge. Então existe $N>0$ tal que
+\[\sum_{\substack{p \ge N \\p\text{ primo}}}\frac{1}{p}<\frac{1}{2}.\]
+Considere a partição dos naturais $\mathbb{N}=A \cup B$, em que $B=\mathbb{N}\setminus A$ e
+\[A=\{n \in \mathbb{N} : p \mid n,\ p\text{ primo}\Rightarrow p<N\}.\]
+
+Sendo $M \in \mathbb{N}$ e $n \le M$, note que o expoente de um fator primo na fatoração de $n$ é no máximo $\frac{\log M}{\log 2}$. Portanto, a quantidade de inteiros positivos que utilizam apenas fatores menores que $N$ é
+\[|A \cap [1,n]| \le \Big(1+\frac{\log M}{\log 2}\Big)^{\pi(N)}.\]
+
+Por outro lado, todo elemento de $B$ possui um fator primo maior ou igual a $N$ e então
+\[|B \cap [1,M]| \le \sum_{\substack{p \ge N\\p\text{ primo}}} \le M\sum_{\substack{p \ge N \\p\text{ primo}}}\frac{1}{p}<\frac{M}{2}.\]
+Dessa forma, temos que
+\begin{align*}
+M&=|A\cap[1,M]|+|B\cap[1,M]|\\
+&<\Big(1+\dfrac{\log M}{\log 2}\Big)^{\pi(N)}+\dfrac{M}{2},
+\end{align*}
+e então
+\[\dfrac{M}{2}<\Big(1+\dfrac{\log M}{\log 2}\Big)^{\pi(N)},\]
+que é claramente absurdo para $M$ suficientemente grande.
+\end{proof}
+
+\newpage
+
+\subsection*{Exercícios}
+
+\prob (IMC 2012) O conjunto dos inteiros positivos $n$ tais que $n!+1$ divide $(2012n)!$ é finito ou infinito?
+
+\prob (IMO SL 2007) Encontre todas as funções sobrejetivas $f: \mathbb{N} \to \mathbb{N}$ tais que, para quaisquer 
+$m,n \in \mathbb{N}$ e para todo primo $p$, o número $f(m+n)$ é divisível por $p$
+se, e somente se, $f(m)+f(n)$ é divisível por $p$.
+
+\prob Sejam $k$ e $n$ inteiros positivos com $n>2^k$. Prove que os $k$ primeiros números que são maiores do que $n$ e primos relativos com $n!$ são primos.
+
+\prob (Sylvester-Schur) Sejam $n,k\in \Z_{>0}$, $n \ge 2k$. Então $\binom{n}{k}$ tem um fator primo $p>k$.
+
+\prob (Erd\H{o}s-Pálify) Sejam $a$ e $b$ inteiros positivos tais que quando os dividimos por qualquer primo $p$, o resto de $a$ é sempre menor ou igual ao resto de $b$. Prove que $a=b$.
+
+\prob Sejam $(p_n)$ a sequência dos primos. Prove que 
+\[\Big(1-\frac{1}{p_1}\Big)\cdot\Big(1-\frac{1}{p_2}\Big)\cdot\Big(1-\frac{1}{p_3}\Big)\cdot\ldots=0.\]
+
+\prob Seja $\lambda > 1$ um número real. Denote por $p_n$ o $n$-ésimo número primo em ordem crescente.
+Prove que a sequência $(\lfloor \lambda p_n \rfloor\})$ possui infinitos divisores primos.
+
+\prob (Rioplatense 1999) Sejam \(p_1, p_2, \ldots, p_k\) \(k\) números primos distintos. Consideramos todos os inteiros positivos que utilizam apenas esses primos (não necessariamente todos) em sua fatoração em primos e organizamos esses números em ordem crescente, formando uma sequência infinita $a_1 < a_2 < \cdots < a_n < \cdots$. Prove que, para todo número \(c\), existe um \(n\) tal que $a_{n+1} - a_n > c$.
+
+\prob (CIIM 2024) Dado um inteiro positivo $n$, seja $\varphi(n)$ o número de
+inteiros positivos menores ou iguais a $n$ que são relativamente primos com $n$.
+Determine todos os inteiros positivos $k$ para os quais existem inteiros positivos $1 \le a_1 < a_2 < \dots < a_k$ tais que
+\[\left\lfloor 
+\frac{\varphi(a_1)}{a_1} + \frac{\varphi(a_2)}{a_2} + \dots + \frac{\varphi(a_k)}{a_k}
+\right\rfloor = 2024.\]
+
+
+
+\bibliographystyle{abbrv}
+\def\bibfont{\footnotesize}
+\nocite{*}
+\bibliography{main}
+
+% Mini bios 
+% Seja informal e divertido
+% Prefira fotos com fundo branco
+\begin{wrapfigure}{L}{1.7cm}
+	\centering
+	\includegraphics[width=2cm]{Rafael_portrait.jpeg}
+\end{wrapfigure}\noindent
+Rafael Filipe dos Santos é natural do Rio de Janeiro, formado em Engenharia da Computação pelo Instituto Militar de Engenharia (IME) e mestre em Matemática Pura pelo Instituto de Matemática Pura e Aplicada (IMPA), onde atualmente cursa o doutorado em Combinatória. Participou de olimpíadas de matemática, obtendo diversas premiações, dentre as quais destacam-se  uma medalha de bronze na Olimpíada Internacional de Matemática (IMO) e duas medalhas de ouro na International Mathematics Competition for University Students (IMC). Hoje atua como membro da Comissão Nacional de Olimpíadas da OBM e é professor de turmas especializadas em Olimpíadas de Matemática em um colégio no Rio de Janeiro.
+
+\end{document}

@@ -1,0 +1,660 @@
+\documentclass{hipatia}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb,amsthm,amsfonts,amsmath,pifont}
+%\usepackage{dropping}
+\usepackage{pstricks, graphicx, epsf}
+\usepackage{caption}% para numerar as figuras com o captionof usando o begin{center}
+\usepackage{multicol}% para duas colunas
+\usepackage[makeroom]{cancel} %para usar o cancelamento.
+\usepackage{yhmath}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{pgf,tikz}
+\usetikzlibrary{fit, shapes.geometric, arrows}
+\usepackage{wasysym}
+%\usepcakage{arcs}
+
+\usepackage{lipsum}
+\usepackage{makeidx}
+\usepackage{pstricks}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{version}
+\usepackage{enumerate}
+%Use \DeclareMathOperator para definir novos
+% operadores para o modo matemático
+\DeclareMathOperator{\sen}{sen}
+
+%Evite numerar teoremas
+%Prefira nomeá-los
+%Use os ambientes abaixo
+\newtheorem*{theorem*}{Teorema}
+\newtheorem*{lemma*}{Lema}
+\newtheorem{problem*}{Problema}
+\newtheorem*{solution*}{Solução}
+
+\subtitle{Problema}
+\title{O Método de Heron e\\ Outros Problemas }
+\author{Yure Carneiro e Samuel Feitosa}
+%\date{22/12/2025}
+\let\widering\relax
+\begin{document}
+\setcounter{page}{\problemapage}
+\maketitle
+
+
+
+\section{Soluções da Edição Anterior}
+
+\section{Problemas Universitários}
+
+\begin{problem*}
+Sejam $A_1, A_2, \ldots, A_{n+1}$ subconjuntos não vazios de $\{1,2,\ldots, n\}$. Prove que existem conjuntos de índices disjuntos e não vazios 
+$I,J \subset \{1,2,\ldots, n+1\}$ tais que $$\displaystyle \bigcup_{k \in I} A_k = \bigcup_{k \in J} A_k.$$
+\end{problem*}
+
+\noindent {\bf Solução:} \\
+
+Considere a matriz $A = (a_{ij})_{i, j}^{n, n+1}$ ($n$ linhas e $n+1$ colunas) definida da seguinte maneira: $$a_{ij} = \begin{cases}
+    1, \ \ \mbox{se} \ i \in A_j \\ 0, \ \ \mbox{se} \ i \not\in A_j
+\end{cases}. 
+$$ Ou seja, dispomos os conjuntos $A_1, \ldots, A_{n+1}$ como vetores colunas $\overline{A}_1, \ldots, \overline{A}_{n+1}$ representando as indicadoras da $n-$upla ordenada $(1, 2, \ldots, n)$ em cada um dos conjuntos. Por hipótese, como cada um deles é não vazio, significa que os vetores colunas dessa matriz são não nulos. 
+
+\noindent Agora, sendo o posto da matriz $A$ no máximo $n$, então o números de colunas linearmente independentes é no máximo $n$, de onde segue que, $\overline{A}_1, \ldots, \overline{A}_{n+1}$ são linearmente dependentes. De onde segue que, existem números reais $\alpha_1, \alpha_2, \ldots, \alpha_{n+1}$, não todos nulos, para os quais $$\alpha_1 \overline{A}_1 + \cdots + \alpha_{n+1} \overline{A}_{n+1} = 0.$$
+
+\noindent Como todos esses vetores são não nulos e com entradas $0$ ou $1$ (não negativas), segue que existem entre esses escalares, alguns que são positivos $(\alpha_i > 0)$ e alguns que são negativos $(\alpha_j < 0)$. Considere então $I$ e $J$ os conjuntos destes escalares que são positivos e negativos, respectivamente (são não vazios e disjuntos). Daí, 
+$$v = \sum_{i \in I} \alpha_i \overline{A}_i = \sum_{j \in J} (-\alpha_j) \overline{A}_j.$$ Essa igualdade entre as duas representações do vetor $v$ acima (que possui entradas não negativas), em termos dos conjuntos $A_k$ significa que, se a entrada $\ell$ de $v$ é diferente de $0$, então $\ell \in A_i, A_j$ para algum $i \in I$ e $j \in J$. Agora, se a entrada $\ell$ de $v$ é igual a $0$, então $\ell \not\in A_i, A_j$ para todos $i \in I$ e $j \in J$. Ou seja, 
+$$\displaystyle \bigcup_{i \in I} A_i = \bigcup_{j \in J} A_j.$$
+
+
+%\noindent Para cada conjunto $A_i$, %considere o vetor de incidência %$v_i=(a^i_{1}, a^i_{2}, \ldots, a^i_n) \in \mathbb{R}^{n}$ em que 
+%$$
+%a^i_j=
+%\begin{cases}
+%1\,\,\ \text{se}\,\,j \in A_i,\\
+%0\,\,\text{caso contrário}.
+%\end{cases}
+%$$
+%Como $\mathbb{R}^n$ é um espaço vetorial de %dimensão $n$, o conjunto $\{v_1,v_2,\ldots, %v_{n+1}\}$ é linearmente dependente, ou %seja, existem números reais $c_i$, não %todos nulas, tais que 
+%$$c_1\cdot v_1 + c_2\cdot v_2+ \ldots + %c_{n+1}\cdot v_{n+1} =0 .$$
+%\noindent Se $I=\{i \mid c_i >0\}$ e $J= %\{i \mid c_i<0\}$, em virtude da igualdade 
+%$$ \sum_{i \in I} c_i \cdot v_i = \sum_{j %\in J} (-c_j) \cdot v_j,$$
+%temos 
+
+%$$\displaystyle \bigcup_{k \in I} A_k = %\bigcup_{k \in J} A_k.$$
+
+\begin{problem*}
+Dizemos que um grupo $G=(G,\ast)$ tem raiz se existe um grupo $H=(H,\cdot)$ de tal sorte que $G$ é isomorfo a $H \times H$. Mostre que o grupo $(\mathbb{R}, +)$ possui raiz.
+
+\noindent Dica: Tente ver a possível raíz como um subespaço vetorial de $\mathbb{R}$ sobre $\mathbb{Q}$. Como construir uma base para esse espaço vetorial?	
+
+\end{problem*}
+
+\noindent {\bf Solução de Rafael A. da Ponte} \\
+
+\noindent Suponha que $(\mathbb{R},+)$ possui uma raiz $X$ via um isomorfismo $\phi$. Podemos considerá-la como um subgrupo aditivo de $\mathbb{R}$ identificando $X$ com a imagem por $\phi$ de $X \times {0}$. É simples de ver que $X$, com as operações usuais, é um subespaço de $\mathbb{R}$ sobre $\mathbb{Q}$. De fato, dado qualquer natural $q$ e um elemento $x \in X$, existe $(a, b)$ em $X \times X$ tal que $q \cdot (a, b) = (x, 0)$ e, portanto, $b = 0$. Assim, $a \in X$ é tal que $a = x/q$ e daí segue da estrutura de grupo que $X$ é fechado por produto por escalar racional.\\
+
+\noindent Disso segue que $X$ é raiz de $\mathbb{R}$, por analogia ao conceito definido no enunciado, também como estrutura de espaço vetorial sobre $\mathbb{Q}$. Feito isso, note que se $B$ é base de Hamel de $X$, $B \times \{0\} \cup \{0\} \times B$ é base de $X \times X$ e suas imagens serão uma base de Hamel de $\mathbb{R}$. Daí, o problema de achar uma raiz de $(\mathbb{R},+)$ resume-se a, dada uma base de Hamel $H$ de $\mathbb{R}$, encontramos um subconjunto $B$ contido em $H$ em bijeção com $H \setminus B$.\\
+
+\noindent Para isso, defina o conjunto dos pares $(C, f)$, $C$ contido em $H$ e $f: C \to H \setminus C$ injetivas ordenado com $(C, f) \leq (D, g) \Leftrightarrow C \subset D$ e $g$ estende $f$. Esse conjunto satisfaz as condições do Lema de Zorn, logo tem um elemento maximal $(B, h)$. Agora, em virtude da maximalidade, $(H \setminus B) \setminus h(B)$ tem, no máximo, um elemento, e em ambos os casos de cardinalidades de $(H \setminus B) \setminus h(B)$, $B$ é um subconjunto como pedimos no parágrafo acima.    
+
+\begin{problem*}
+Seja $G$ um conjunto finito de matrizes $n \times n$ de coeficientes reais $\{M_i\}$, $1 \leq i \leq r$, que forma um grupo sobre a multiplicação matricial. Suponha que $\sum_{i=1}^{r} tr(M_i)=0$, onde $tr(A)$ denota o traço da matriz $A$. Prove que $\sum_{i=1}^r M_i$ é a matriz nula.     
+\end{problem*}  
+
+\noindent {\bf Solução:} \\
+
+\noindent Seja \( S = \sum_{i=1}^r M_i \). Para qualquer \( j \), a sequência \( M_jM_1, M_jM_2, \ldots, M_jM_r \) é uma permutação dos elementos de \( G \). Somando todos eles, obtemos \( M_jS = S \). Somando essas expressões de \( j = 1 \) até \( r \) resulta em \( S^2 = rS \). Portanto, o polinômio minimal de \( S \) divide \( x^2 - rx \) e, consequentemente, todo autovalor de \( S \) é \( 0 \) ou \( r \). Por outro lado, soma dos autovalores, contados com multiplicidade, é \( \operatorname{tr}(S) = 0 \), então todos os autovalores são iguais a \( 0 \). Todo autovalor de \( S - rI \) é \( -r \neq 0 \), logo \( S - rI \) é invertível. Portanto, de \( S(S - rI) = 0 \), obtemos \( S = 0 \).
+\begin{problem*}
+Seja $f(x)=a_1\sen x+a_2 \sen 2x+\ldots +a_n \sen nx$, onde $a_1,a_2, \ldots, a_n$ são números reais e $n$ é um inteiro positivo. Dado que $|f(x)|\leq |\sen x|$ para todo o número real $x$, prove que 
+$$|a_1+2a_2+\ldots+na_n| \leq 1.$$ 
+% 108 larson    
+\end{problem*}
+
+\noindent {\bf Solução de Yan Lima Machado:} \\
+
+\noindent Dado o     $f(x)$ do enunciado, tem-se que 
+$$f'(x) = a_1 \cdot \cos(x) + 2\cdot a_2 \cdot \cos(2x) +\ldots + n \cdot a_n \cdot \cos(nx).$$ 
+\noindent Daí, nota-se que
+\begin{align*}
+f(0) & = a_1 \cdot sen(0) + a_2 \cdot sen(0) + \ldots + a_n \cdot sen(0) \\
+      & =  0; \\
+f'(0) & =  a_1 \cdot \cos(0) + 2\cdot a_2 \cdot \cos(0) + \ldots + n \cdot a_n \cdot \cos(0);\\ 
+      & =  a_1 + 2 \cdot a_2 + \ldots  + n \cdot a_n.
+\end{align*}
+\noindent Portanto, basta mostrarmos que $|f'(0)| \leq 1$. Pelo enunciado, $|f(x)| \leq |\sen(x)|$, então supondo que $x \neq 0$, tem-se que
+$$\left|\dfrac{f(x)}{x}\right| \leq \left|\dfrac{\sen(x)}{x}\right|.$$
+Daí 
+$$
+|f'(0)| = \left|\lim_{x \to 0}\dfrac{f(x)-f(0)}{x-0}\right| \leq \left|\lim_{x \to 0}\dfrac{\sen(x)}{x}\right| = 1. 
+$$
+
+
+\begin{problem*}
+Calcule a integral
+$$\displaystyle \int_{0}^{\pi/2} \dfrac{\sen^{25}x}{\cos^{25}x+\sen^{25}x}dx.$$    
+\end{problem*}
+
+\noindent {\bf Solução de Yan Lima Machado:} \\
+
+\noindent Denote o valor da integral acima por $I$. Fazendo a mudança de variável $u = \dfrac{\pi}{2} - x$, tem-se que
+$$\dfrac{\sen^{25}(x)}{\sen^{25}(x) + \cos^{25}(x)} = \dfrac{\cos^{25}(u)}{\cos^{25}(u) + \sen^{25}(u)}.$$
+Além do mais, $du = -dx$ para $x=0$ temos  $u = {\pi}/{2}$ e para $x=\pi/{2}$, temos $u = 0$. Daí, obtemos
+\begin{align*}
+\int_{0}^{\pi/2}\dfrac{\sen^{25}(x)}{\sen^{25}(x) + \cos^{25}(x)}\ dx 
+ &= \\ -\int_{\pi/2}^{0}\dfrac{\cos^{25}(u)}{\sen^{25}(u) + \cos^{25}(u)}\ du  
+ &= \\ \int_{0}^{\pi/2}\dfrac{\cos^{25}(x)}{\sen^{25}(x) + \cos^{25}(x)}\ dx &.
+\end{align*} 
+\noindent Portanto, $I + I = \int_0^{\pi/ 2}1 dx  = \pi/2$ e, consequentemente, $I = \dfrac{\pi}{4}$.
+
+\section{Problemas de Matemática Elementar}
+
+\begin{problem*}
+A figura a seguir consiste de $5$ quadrados iguais colocados no interior de um retângulo $8 cm \times 7 cm$. Qual a medida do lado desses quadrados?
+
+\begin{center}
+%\includegraphics[scale=1]{2025S5.png} 
+
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+%uncomment if require: \path (0,229); %set diagram left start at 0, and has height of 229
+
+%Shape: Square [id:dp8310591847333366] 
+\draw   (81.04,143.73) -- (126.27,165.04) -- (104.96,210.27) -- (59.73,188.96) -- cycle ;
+%Shape: Square [id:dp6394018641929571] 
+\draw   (102.35,98.5) -- (147.58,119.81) -- (126.27,165.04) -- (81.04,143.73) -- cycle ;
+%Shape: Square [id:dp7101991019133413] 
+\draw   (147.58,119.81) -- (192.81,141.12) -- (171.5,186.35) -- (126.27,165.04) -- cycle ;
+%Shape: Square [id:dp6129628011184751] 
+\draw   (57.12,77.19) -- (102.35,98.5) -- (81.04,143.73) -- (35.81,122.42) -- cycle ;
+%Shape: Square [id:dp5937232866276528] 
+\draw   (78.44,31.96) -- (123.67,53.27) -- (102.35,98.5) -- (57.12,77.19) -- cycle ;
+%Shape: Rectangle [id:dp3136904465352581] 
+\draw   (35.81,31.55) -- (192.45,31.55) -- (192.45,210.55) -- (35.81,210.55) -- cycle ;
+
+% Text Node
+\draw (14,112.4) node [anchor=north west][inner sep=0.75pt]    {$8$};
+% Text Node
+\draw (105,5.4) node [anchor=north west][inner sep=0.75pt]    {$7$};
+
+
+\end{tikzpicture}
+
+
+\end{center}    
+\end{problem*}
+
+\noindent {\bf Solução:} \\
+
+\noindent Seja $a$ o comprimento do lado do quadrado. Como as inclinações dos lados dos quadrados formam $90^{\circ}$ entre si, só existem dois comprimentos possíveis de projeções dos lados dos quadrados sobre os lados dos retângulos: $x$ ou $y$. 
+
+\begin{center}
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+%uncomment if require: \path (0,276); %set diagram left start at 0, and has height of 276
+
+%Shape: Square [id:dp018112367285502362] 
+\draw   (88.04,123.73) -- (133.27,145.04) -- (111.96,190.27) -- (66.73,168.96) -- cycle ;
+%Shape: Square [id:dp5943023418161014] 
+\draw   (109.35,78.5) -- (154.58,99.81) -- (133.27,145.04) -- (88.04,123.73) -- cycle ;
+%Shape: Square [id:dp03803715800556129] 
+\draw   (154.58,99.81) -- (199.81,121.12) -- (178.5,166.35) -- (133.27,145.04) -- cycle ;
+%Shape: Square [id:dp8135157317694328] 
+\draw   (64.12,57.19) -- (109.35,78.5) -- (88.04,123.73) -- (42.81,102.42) -- cycle ;
+%Shape: Square [id:dp5890979132395524] 
+\draw   (85.44,11.96) -- (130.67,33.27) -- (109.35,78.5) -- (64.12,57.19) -- cycle ;
+%Shape: Rectangle [id:dp38421750124480836] 
+\draw   (42.81,11.55) -- (199.45,11.55) -- (199.45,190.55) -- (42.81,190.55) -- cycle ;
+%Shape: Brace [id:dp682805359495082] 
+\draw   (154.45,96.65) .. controls (156.54,92.48) and (155.49,89.35) .. (151.32,87.26) -- (146.32,84.76) .. controls (140.35,81.77) and (138.41,78.19) .. (140.5,74.02) .. controls (138.41,78.19) and (134.39,78.79) .. (128.43,75.81)(131.11,77.15) -- (123.84,73.52) .. controls (119.67,71.43) and (116.54,72.48) .. (114.45,76.65) ;
+%Straight Lines [id:da8432979045004766] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (133.27,145.04) -- (133,190.7) ;
+%Straight Lines [id:da19558504193021709] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (178.5,166.35) -- (178,190.7) ;
+%Straight Lines [id:da21301125830273182] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (66.73,168.96) -- (67,191.7) ;
+%Straight Lines [id:da08049844508959292] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (88.04,123.73) -- (88,190.7) ;
+%Shape: Brace [id:dp8813692412619506] 
+\draw   (45,194.7) .. controls (45,199.37) and (47.33,201.7) .. (52,201.7) -- (55.18,201.7) .. controls (61.85,201.7) and (65.18,204.03) .. (65.18,208.7) .. controls (65.18,204.03) and (68.51,201.7) .. (75.18,201.7)(72.18,201.7) -- (78,201.7) .. controls (82.67,201.7) and (85,199.37) .. (85,194.7) ;
+%Shape: Brace [id:dp6572793173104214] 
+\draw   (91,194.7) .. controls (91,199.37) and (93.33,201.7) .. (98,201.7) -- (101.18,201.7) .. controls (107.85,201.7) and (111.18,204.03) .. (111.18,208.7) .. controls (111.18,204.03) and (114.51,201.7) .. (121.18,201.7)(118.18,201.7) -- (124,201.7) .. controls (128.67,201.7) and (131,199.37) .. (131,194.7) ;
+%Shape: Brace [id:dp4425137446849201] 
+\draw   (137,193.7) .. controls (137,198.37) and (139.33,200.7) .. (144,200.7) -- (147.18,200.7) .. controls (153.85,200.7) and (157.18,203.03) .. (157.18,207.7) .. controls (157.18,203.03) and (160.51,200.7) .. (167.18,200.7)(164.18,200.7) -- (170,200.7) .. controls (174.67,200.7) and (177,198.37) .. (177,193.7) ;
+%Shape: Brace [id:dp6454129837672284] 
+\draw   (180,193.7) .. controls (180,196.03) and (181.17,197.2) .. (183.5,197.2) -- (183.5,197.2) .. controls (186.83,197.2) and (188.5,198.37) .. (188.5,200.7) .. controls (188.5,198.37) and (190.17,197.2) .. (193.5,197.2)(192,197.2) -- (193.5,197.2) .. controls (195.83,197.2) and (197,196.03) .. (197,193.7) ;
+%Straight Lines [id:da5069192823536844] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (130.67,33.27) -- (43,34.03) ;
+%Straight Lines [id:da6534852579168422] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (109.35,78.5) -- (43,79.03) ;
+%Straight Lines [id:da32570512765387927] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (88.04,123.73) -- (43,124.03) ;
+%Straight Lines [id:da2339569247382265] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (66.73,168.96) -- (43,169.03) ;
+%Shape: Brace [id:dp9496478419557592] 
+\draw   (35.45,126.58) .. controls (30.78,126.47) and (28.4,128.75) .. (28.29,133.42) -- (28.18,138.2) .. controls (28.03,144.86) and (25.62,148.14) .. (20.95,148.03) .. controls (25.62,148.14) and (27.87,151.52) .. (27.71,158.19)(27.78,155.19) -- (27.62,162.42) .. controls (27.51,167.09) and (29.78,169.47) .. (34.45,169.58) ;
+%Shape: Brace [id:dp7831844283059133] 
+\draw   (36.45,79.58) .. controls (31.78,79.47) and (29.4,81.75) .. (29.29,86.42) -- (29.18,91.2) .. controls (29.03,97.86) and (26.62,101.14) .. (21.95,101.03) .. controls (26.62,101.14) and (28.87,104.52) .. (28.71,111.19)(28.78,108.19) -- (28.62,115.42) .. controls (28.51,120.09) and (30.78,122.47) .. (35.45,122.58) ;
+%Shape: Brace [id:dp5583536176852927] 
+\draw   (37.45,33.58) .. controls (32.78,33.47) and (30.4,35.75) .. (30.29,40.42) -- (30.18,45.2) .. controls (30.03,51.86) and (27.62,55.14) .. (22.95,55.03) .. controls (27.62,55.14) and (29.87,58.52) .. (29.71,65.19)(29.78,62.19) -- (29.62,69.42) .. controls (29.51,74.09) and (31.78,76.47) .. (36.45,76.58) ;
+%Shape: Brace [id:dp3947581860127738] 
+\draw   (37.13,14.43) .. controls (34.94,14.43) and (33.84,15.53) .. (33.84,17.73) -- (33.84,17.73) .. controls (33.84,20.86) and (32.74,22.43) .. (30.55,22.43) .. controls (32.74,22.43) and (33.84,24) .. (33.84,27.14)(33.84,25.73) -- (33.84,27.14) .. controls (33.84,29.33) and (34.94,30.43) .. (37.13,30.43) ;
+%Shape: Brace [id:dp5746821828197489] 
+\draw   (34.13,174.43) .. controls (31.94,174.43) and (30.84,175.53) .. (30.84,177.73) -- (30.84,177.73) .. controls (30.84,180.86) and (29.74,182.43) .. (27.55,182.43) .. controls (29.74,182.43) and (30.84,184) .. (30.84,187.14)(30.84,185.73) -- (30.84,187.14) .. controls (30.84,189.33) and (31.94,190.43) .. (34.13,190.43) ;
+
+% Text Node
+\draw (138,54.4) node [anchor=north west][inner sep=0.75pt]    {$a$};
+% Text Node
+\draw (59,212.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (105,212.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (151,210.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (183,207.1) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (9,139.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (9,90.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (10,44.1) node [anchor=north west][inner sep=0.75pt]    {$x$};
+% Text Node
+\draw (19,11.1) node [anchor=north west][inner sep=0.75pt]    {$y$};
+% Text Node
+\draw (14,172.1) node [anchor=north west][inner sep=0.75pt]    {$y$};
+
+
+\end{tikzpicture}
+
+\end{center}
+
+\noindent Comparando as medidas dos dois lados dos retângulos com essas projeções, temos $8 = 2x+y+x+y=3x+2y$ e $7 = 3x+y$. Resolvendo o sistema resultante, encontramos $x=2$ e $y=1$. Portanto, pelo Teorema de Pitágoras, $a =\sqrt{x^2+y^2}=\sqrt{5}\, cm$.
+
+\begin{problem*}
+Na figura a seguir, $ABCD$ é um quadrado e $M$, $N$, $P$ e $Q$ são os pontos médios dos seus lados. As áreas de três regiões do seu interior são $20\,cm^2$, $32\,cm^2$ e $16\,cm^2$, também como indicado na figura. Qual a área da quarta região?
+	
+	\begin{center}
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
+%uncomment if require: \path (0,290); %set diagram left start at 0, and has height of 290
+
+%Straight Lines [id:da5791163690656506] 
+\draw    (35,49) -- (235,49) -- (235,249) -- (35,249) -- cycle ;
+%Straight Lines [id:da37597747559023353] 
+\draw    (135,49) -- (95,169) ;
+%Straight Lines [id:da38925328670966275] 
+\draw    (35,149) -- (95,169) ;
+%Straight Lines [id:da7262458502420607] 
+\draw    (95,169) -- (135,249) ;
+%Straight Lines [id:da9486257308266391] 
+\draw    (95,169) -- (235,149) ;
+%Straight Lines [id:da972587313168729] 
+\draw    (35,49) -- (235,49) -- (235,249) -- (35,249) -- cycle ;
+%Straight Lines [id:da5823559084688028] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (135,49) -- (95,169) ;
+\draw [shift={(95,169)}, rotate = 108.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(135,49)}, rotate = 108.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da39112787319928877] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (95,169) -- (35,149) ;
+\draw [shift={(35,149)}, rotate = 198.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(95,169)}, rotate = 198.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da5330779426290833] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (235,149) -- (95,169) ;
+\draw [shift={(95,169)}, rotate = 171.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(235,149)}, rotate = 171.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da7632075828451849] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (135,249) -- (95,169) ;
+\draw [shift={(95,169)}, rotate = 243.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(135,249)}, rotate = 243.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da3630086053841587] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (35,49) -- (235,49) -- (235,249) -- (35,249) -- cycle ;
+\draw [shift={(35,49)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(35,49)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da83255146345802] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (235,49) -- (235,249) ;
+\draw [shift={(235,249)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(235,49)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da027778875550508175] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (235,249) -- (35,249) ;
+\draw [shift={(35,249)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(235,249)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+
+% Text Node
+\draw (12,33.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (243,33.4) node [anchor=north west][inner sep=0.75pt]    {$B$};
+% Text Node
+\draw (243,252.4) node [anchor=north west][inner sep=0.75pt]    {$C$};
+% Text Node
+\draw (12,251.4) node [anchor=north west][inner sep=0.75pt]    {$D$};
+% Text Node
+\draw (42,85.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$20\ cm^{2}$};
+% Text Node
+\draw (148,101.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$32\ cm^{2}$};
+% Text Node
+\draw (40,205.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$16\ cm^{2}$};
+% Text Node
+\draw (173,194.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$?$};
+% Text Node
+\draw (126,23.4) node [anchor=north west][inner sep=0.75pt]    {$M$};
+% Text Node
+\draw (246,139.4) node [anchor=north west][inner sep=0.75pt]    {$N$};
+% Text Node
+\draw (127,258.4) node [anchor=north west][inner sep=0.75pt]    {$P$};
+% Text Node
+\draw (14,142.4) node [anchor=north west][inner sep=0.75pt]    {$Q$};
+
+
+\end{tikzpicture}
+
+
+	\end{center}    
+\end{problem*}
+
+\noindent {\bf Solução:} \\
+
+\noindent Seja $R$ o ponto central da figura, $2x$ o comprimento de metade de um lado do quadrado e $d_1$, $d_2$, $d_3$ e $d_4$ as distâncias de $R$ aos lados.  
+
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
+%uncomment if require: \path (0,277); %set diagram left start at 0, and has height of 277
+
+%Straight Lines [id:da1305829743769189] 
+\draw    (31,36) -- (231,36) -- (231,236) -- (31,236) -- cycle ;
+%Straight Lines [id:da7623343552925848] 
+\draw    (131,36) -- (91,156) ;
+%Straight Lines [id:da2661426875952324] 
+\draw    (31,136) -- (91,156) ;
+%Straight Lines [id:da4580249191001142] 
+\draw    (91,156) -- (131,236) ;
+%Straight Lines [id:da6277030353437569] 
+\draw    (91,156) -- (231,136) ;
+%Straight Lines [id:da6630807849654555] 
+\draw    (31,36) -- (231,36) -- (231,236) -- (31,236) -- cycle ;
+%Straight Lines [id:da750132712108133] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (131,36) -- (91,156) ;
+\draw [shift={(91,156)}, rotate = 108.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(131,36)}, rotate = 108.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da8025879035483618] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (91,156) -- (31,136) ;
+\draw [shift={(31,136)}, rotate = 198.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(91,156)}, rotate = 198.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da31757535914256185] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (231,136) -- (91,156) ;
+\draw [shift={(91,156)}, rotate = 171.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(231,136)}, rotate = 171.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da8400398238645145] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (131,236) -- (91,156) ;
+\draw [shift={(91,156)}, rotate = 243.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(131,236)}, rotate = 243.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da6562602064718116] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (31,36) -- (231,36) -- (231,236) -- (31,236) -- cycle ;
+\draw [shift={(31,36)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(31,36)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da609350498890902] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (231,36) -- (231,236) ;
+\draw [shift={(231,236)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(231,36)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da3839679183352557] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=1.5]    (231,236) -- (31,236) ;
+\draw [shift={(31,236)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+\draw [shift={(231,236)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=1.5]      (0, 0) circle [x radius= 4.36, y radius= 4.36]   ;
+%Straight Lines [id:da6267354271017582] 
+\draw [line width=1.5]  [dash pattern={on 5.63pt off 4.5pt}]  (91,156) -- (91,36) ;
+%Straight Lines [id:da3636662689411351] 
+\draw [line width=1.5]  [dash pattern={on 5.63pt off 4.5pt}]  (91,156) -- (31,156) ;
+%Straight Lines [id:da5466249579786332] 
+\draw [line width=1.5]  [dash pattern={on 5.63pt off 4.5pt}]  (91,156) -- (90.4,235.6) ;
+%Straight Lines [id:da05841156002366232] 
+\draw [line width=1.5]  [dash pattern={on 5.63pt off 4.5pt}]  (91,156) -- (230.4,155.6) ;
+%Straight Lines [id:da8879732988850167] 
+\draw    (31,36) -- (91,156) ;
+%Straight Lines [id:da7839234808451883] 
+\draw    (91,156) -- (231,36) ;
+%Straight Lines [id:da33999161288504387] 
+\draw    (91,156) -- (31,236) ;
+%Straight Lines [id:da9215211726368796] 
+\draw    (91,156) -- (231,236) ;
+
+% Text Node
+\draw (8,20.4) node [anchor=north west][inner sep=0.75pt]    {$A$};
+% Text Node
+\draw (239,20.4) node [anchor=north west][inner sep=0.75pt]    {$B$};
+% Text Node
+\draw (239,239.4) node [anchor=north west][inner sep=0.75pt]    {$C$};
+% Text Node
+\draw (8,238.4) node [anchor=north west][inner sep=0.75pt]    {$D$};
+% Text Node
+\draw (68,79.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$d_{1}$};
+% Text Node
+\draw (122,10.4) node [anchor=north west][inner sep=0.75pt]    {$M$};
+% Text Node
+\draw (242,126.4) node [anchor=north west][inner sep=0.75pt]    {$N$};
+% Text Node
+\draw (123,245.4) node [anchor=north west][inner sep=0.75pt]    {$P$};
+% Text Node
+\draw (10,129.4) node [anchor=north west][inner sep=0.75pt]    {$Q$};
+% Text Node
+\draw (68,189.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$d_{3}$};
+% Text Node
+\draw (154,158.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$d_{2}$};
+% Text Node
+\draw (48,159.4) node [anchor=north west][inner sep=0.75pt]  [font=\large]  {$d_{4}$};
+% Text Node
+\draw (101,133.4) node [anchor=north west][inner sep=0.75pt]    {$R$};
+
+
+\end{tikzpicture}
+\end{center}
+
+\noindent A área do quadrilátero $DPRQ$ é a soma das áreas de dois triângulos de bases de comprimento $2x$ e alturas $d_3$ e $d_4$. Ou seja, 
+$$A_{DPRQ} = \dfrac{2x \cdot d_3}{2}+\dfrac{2x \cdot d_4}{2} = x \cdot (d_3+d_4) .$$ 
+De modo semelhante, 
+$$A_{AQRM} = x \cdot (d_1+d_4), A_{BMRN} = x \cdot (d_1+d_2)$$
+$$\text{e }A_{CNRP} = x \cdot (d_2+d_3).$$	
+Portanto, 
+\begin{eqnarray*}
+A_{CNRP} + A_{AQRM} & = & A_{BMRN} + A_{DPRQ} \\
+A_{CNRP} + 20 & = & 32 + 16.
+\end{eqnarray*}
+Assim, $A_{CNRP} = 32+16-20 = 28\,cm^2$.
+
+\begin{problem*}
+Dois inteiros positivos $x$ e $y$ são tais que 
+$$\dfrac{2010}{2011} < \dfrac{x}{y} < \dfrac{2011}{2012}.$$
+Encontre o menor valor possível para a soma $x+y$.
+ 
+\end{problem*}
+
+\noindent {\bf Solução de Yan Lima Machado:} \\
+
+\noindent A desigualdade acima pode ser reescrita como:
+\begin{align*}
+\dfrac{2010}{2011} < \frac{x}{y} < \dfrac{2011}{2012} &\Leftrightarrow \\
+1 - \dfrac{1}{2011} < 1 -\frac{t}{y} < 1 - \dfrac{1}{2012}  &\Leftrightarrow \\
+ 2011 < \dfrac{y}{t} < 2012. 
+\end{align*}
+\noindent com $t = y - x \in \mathbb{Z}$. 
+Devemos ter $t \geq 2$, pois para $t = 1$ não existe um inteiro $y$ tal que $2011<y<2012$. Da desigualdade
+$2011 \cdot t < y < 2012 \cdot t$, tem-se que $y \geq  2011 \cdot t + 1$. Daí:
+
+\begin{align*}
+x + y & =  (y - t) + y \\
+      & =  2y -t \\
+      & =  2\cdot (2011 \cdot t + 1) - t \\ & = 4021 \cdot t + 2.
+\end{align*}
+\noindent Como $t \geq 2$, tem-se que o menor valor possível para $x+y$ é
+$$x + y = 4021 \cdot 2 + 2 = 8042 + 2 = 8044.$$
+Um exemplo é $x = 4021$ e $y=4023$.
+
+\begin{problem*}
+
+
+Sejam $a, b$ e $c$ reais satisfazendo $a+b+c = 0$ e $a^2 + b^2 + c^2 = 4$. Qual o valor de $(ab)^2 + (bc)^2 + (ca)^2$ ?
+\end{problem*}
+
+\noindent {\bf Solução:}
+
+\noindent Veja que $$a^2 + b^2 + c^2 + 2(ab + bc + ca) = (a + b + c)^2 = 0.$$ De onde, $$ab + bc + ca = -2$$ (pois $a^2 + b^2 + c^2 = 4$). 
+
+Assim, $$(ab)^2 + (bc)^2 + (ca)^2 + 2(ab^2c + bc^2a + ca^2b) = $$
+$$(ab + bc + ca)^2 = (-2)^2 = 4$$   $$\therefore (ab)^2 + (bc)^2 + (ca)^2 + 2abc(a + b + c) = 4$$ 
+ $$\therefore (ab)^2 + (bc)^2 + (ca)^2 = 4.$$
+
+	
+
+\begin{problem*}
+
+Mostre que $$\frac{1}{1+\sqrt{2}} + \frac{1}{\sqrt{3}+\sqrt{4}} + \frac{1}{\sqrt{5}+\sqrt{6}} + \cdots + \frac{1}{\sqrt{99}+\sqrt{100}} > \frac{9}{2}.$$
+	
+\end{problem*}
+
+\noindent {\bf Solução:}
+
+\noindent Note que, 
+\begin{align*}
+\frac{1}{\sqrt{n} + \sqrt{n+1}} &= \frac{\sqrt{n+1} - \sqrt{n}}{(\sqrt{n+1} + \sqrt{n})(\sqrt{n+1} - \sqrt{n})} \\
+&= \frac{\sqrt{n+1} - \sqrt{n}}{n+1 - n} \\ 
+&= \sqrt{n+1} - \sqrt{n}.   
+\end{align*}
+Assim, 
+\begin{align*}
+\sum_{n=1}^{99} \frac{1}{\sqrt{n} + \sqrt{n+1}} &= \sum_{n=1}^{99} \sqrt{n+1} - \sqrt{n} \\
+&= \sqrt{100} - \sqrt{1} = 10 - 1 = 9.
+\end{align*}
+Além disso, 
+$$\frac{1}{1+\sqrt{2}} + \frac{1}{\sqrt{3}+\sqrt{4}} + \frac{1}{\sqrt{5}+\sqrt{6}} + \cdots + \frac{1}{\sqrt{99}+\sqrt{100}} = $$ 
+$$\sum_{k=0}^{49} \frac{1}{\sqrt{2k+1} + \sqrt{2k+2}} > \sum_{k=0}^{48} \frac{1}{\sqrt{2k+2} + \sqrt{2k+3}}$$ e 
+$$ \sum_{k=0}^{49} \frac{1}{\sqrt{2k+1} + \sqrt{2k+2}} + \sum_{k=0}^{48} \frac{1}{\sqrt{2k+2} + \sqrt{2k+3}} = $$ $$\sum_{n=1}^{99} \frac{1}{\sqrt{n} + \sqrt{n+1}} = 9.$$ Portanto, $$2 \sum_{k=0}^{49} \frac{1}{\sqrt{2k+1} + \sqrt{2k+2}} > 9$$ e $$\sum_{k=0}^{49} \frac{1}{\sqrt{2k+1} + \sqrt{2k+2}} > \frac{9}{2}.$$
+
+\begin{problem*}
+Em uma sequência de inteiros positivos, uma {\it inversão} é um par de posições em que o elemento da posição mais a esquerda é maior que o elemento da posição mais a direita. Por exemplo, a sequência $2,5,3,1,3$ tem $5$ inversões: entre a primeira e a quarta posição, entre a segunda e todas as demais para a direita e, finalmente, entre a terceira e a quarta. Qual é o maior número possível de inversões em uma sequência de inteiros positivos cuja a soma de seus elementos é $2019$?    
+\end{problem*}
+
+\noindent {\bf Solução:} \\
+
+\noindent Primeiramente vamos mostrar que qualquer sequência maximizante do número de inversões precisa ser não-crescente. De fato, se existe um par de números consecutivos $a$ e $b$, com $a< b$, então a troca de posição desses elementos não altera a soma e aumenta o número de inversões em uma unidade. A seguir, mostraremos que qualquer sequência não-crescente que maximiza o número de inversões deve possuir apenas números iguais a $1$ e $2$. Suponha, por absurdo, que a sequência contém algum número $k>2$. Troque o último $k$ por um par de elementos: $k-1$ na posição original e $1$ na posição final. Claramente essa operação não altera a soma. O $1$ final é parte de uma inversão com todo o elemento que era membro de uma inversão com o $k$ original, exceto pelos números $1$ a sua direita. O novo $k-1$ é parte de uma inversão com todo elemento que era menor que o $k$ original, incluindo as parcelas $1$ a sua direita. Assim, contabilizando a inversão criada entre o novo $k-1$ e o novo $1$, essa troca criada aumenta o número de inversões em pelo menos uma unidade. Finalmente, considerando uma sequência qualquer que maximiza o número de inversões e que possui de soma de seus elementos igual a $2019$, podemos supor que existem $a$ parcelas iguais a $2$ e $2019-2a$ parcelas iguais a $1$. O número de inversões é 
+\begin{eqnarray*}
+a(2019-2a) & = & 2019a-2a^2 \\
+           & = & \dfrac{2019^2}{8} - 2\left ( a-\dfrac{2019}{4} \right )^2.
+\end{eqnarray*}
+Para maximizar a expressão anterior, devemos minimizar $|a-2019/4|$ e isso ocorre para $a=505$. Portanto, o maior número de inversões é $505 \cdot 1009$.
+
+\begin{problem*}
+
+A soma dos números positivos $x_1, x_2, \ldots, x_n$ é igual a $\frac{1}{2}$. Prove que $$\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2} \cdots \frac{1-x_n}{1+x_n} \geq \frac{1}{3}.$$
+	
+\end{problem*}
+
+\noindent {\bf Solução:} \\
+
+\noindent Provaremos esse resultado por indução. Vejamos.
+
+\ 
+
+Se $n=1$, temos $x_1 = \frac{1}{2}$ e então $\frac{1-x_1}{1+x_1} = \frac{1/2}{3/2} = \frac{1}{3}$.
+
+\ 
+
+Agora, vamos supor que a afirmação é válida para $n$, e suponhamos que $x_1, x_2, \ldots, x_n, x_{n+1}$ são números positivos para os quais $x_1 + \cdots + x_n + x_{n+1} = \frac{1}{2}$. 
+
+\ 
+
+Primeiro vejamos o seguinte: se $0 < a \leq b $ e $c \geq 0$, então $bc \geq ac$ e $(a+c)b = ab + bc \geq ab + ac = (b+c)a$ e portanto, $\frac{a+c}{b+c} \geq \frac{a}{b}$. Aplicando esse fato aos números $a=1-(x_n+x_{n+1}), \ b=1+(x_n+x_{n+1})$ e $c=x_nx_{n+1}$, segue que $$\frac{1-(x_n+x_{n+1}) + x_nx_{n+1}}{1+(x_n+x_{n+1}) + x_nx_{n+1}} \geq \frac{1-(x_n+x_{n+1})}{1+(x_n+x_{n+1})}.$$ Portanto, 
+\begin{equation}
+    \frac{1-x_n}{1+x_n} \cdot \frac{1-x_{n+1}}{1+x_{n+1}} \geq \frac{1-(x_n+x_{n+1})}{1+(x_n+x_{n+1})}.
+\end{equation}
+
+Agora, fazendo $y_n = x_n + x_{n+1}$, temos que $x_1, \ldots, x_{n-1}, y_n$ são $n$ números positivos cuja soma é igual a $\frac{1}{2}$, e por hipótese de indução vale que, $$\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2} \cdots \frac{1-y_n}{1+y_n} \geq \frac{1}{3},$$
+isto é, \begin{equation}
+    \frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2} \cdots \frac{1-(x_n+x_{n+1})}{1+(x_n+x_{n+1})} \geq \frac{1}{3}.
+\end{equation} Por $(1)$ e $(2)$, segue que, $$\frac{1-x_1}{1+x_1} \cdot \frac{1-x_2}{1+x_2} \cdots \frac{1-x_n}{1+x_n} \cdot \frac{1-x_{n+1}}{1+x_{n+1}} \geq \frac{1}{3}$$ e por indução, a afirmação é vale para todo $n \geq 1$, de onde segue o desejado.
+
+\pagebreak 
+
+\section{Novos Problemas}
+
+\section{Problemas Universitários}
+
+\begin{problem*} Mostre que para qualquer primo $p > 17$, o número $$p^{32} - 1$$ é divisivel por $16320$.
+
+\end{problem*}
+
+\begin{problem*} Sejam $c$ e $x_0$ números reais positivos fixados. Defina a sequência $$x_n = \frac{1}{2}\left( x_{n-1} + \frac{c}{x_{n-1}}\right), \ \mbox{para} \ n \geq 1.$$ Prove que a sequência converge e que o limite é $\sqrt{c}$. 
+
+\end{problem*}
+
+
+\begin{problem*} 
+Calcule o determinante da matriz quadrada de ordem $n$, $A = (a_{ij})_{ij}$, definida por $$a_{ij} = \begin{cases}
+    (-1)^{|i-j|}, \ \ \mbox{se} \ i \neq j \\ 2, \ \ \mbox{se} \ i=j
+\end{cases}.$$
+\end{problem*}
+
+
+\begin{problem*}
+Considere uma esfera de raio unitário centrada na origem de um sistemas de coordenadas $xyz$. Seja $C$ um pentágono regular inscrito na esfera e contido no plano $xy$. Determine a área da região contida na esfera cuja projeção com respeito à terceira coordenada coincide com a região delimitada por $C$.
+\end{problem*}
+
+\begin{problem*}
+Seja $f$ diferenciável em $x=a$ com $f(a) \neq 0$. Calcule:
+$$\displaystyle \lim_{n \to \infty} \left [ \dfrac{f(a+1/n)}{f(a)} \right ]^n.$$
+\end{problem*}
+
+\begin{problem*}
+Sejam $A, B \in M(n, \mathbb{C})$ e $P \in \mathbb{C}[X]$ um polinômio năo-constante tal que $P(0) \neq 0$ e $A B=P(A)$. Prove que  a matriz $A$ é invertível e que as matrizes $A$ e $B$ comutam (isto é, que $AB=BA$).
+\end{problem*}
+
+
+\section{Problemas de Matemática Elementar}
+
+\begin{problem*} O produto dos números reais positivos $a_1, a_2, \ldots, a_n$ é igual a 1. Prove, \textbf{sem ser por indução}, que $$(1+a_1)\cdot(1+a_2)\cdots (1+a_n) \geq 2^n.$$  
+
+\end{problem*}
+
+
+
+\begin{problem*} Seja $A$ um subconjunto dos números naturais tal que, entre 100 números naturais consecutivos, existe um elemento de $A$. Prove que podemos encontrar quatro números diferentes $a, b, c$ e $d$ em $A$ tais que $a+b = c+d$.  
+
+\end{problem*}
+
+
+\begin{problem*} Uma pilha tem 40 pedras. A pilha é dividida em duas partes, depois uma das partes é dividida em duas novamente, etc., até termos 40 pedras separadas (40 pilhas formadas com uma pedra cada). Depois de cada divisão de uma das pilhas em duas menores, escrevemos o produto dos números de pedras nestas duas pilhas em um quadro. Mostre que, no final, a soma de todos os números no quadro será igual a 780. 
+
+\end{problem*}
+
+
+\begin{problem*}
+A sequência de números inteiros $x_n$ é definida por $x_1=4$, $x_2=6$ e, para $n \geq 3$, $x_n$ é o menor número composto maior que $2x_{n-1}-x_{n-2}$. Encontre o valor de $x_{2026}$.
+\end{problem*}
+
+\begin{problem*}
+Em uma festa, existem $25$ membros que satisfazem a seguinte condição: quando dois deles não se conhecem, então eles possuem algum amigo em comum. Sabemos que ninguém conhece todos na festa. Prove que a soma dos números de amigos de cada pessoa na festa é pelo menos $72$.
+\end{problem*}
+
+\begin{problem*}
+Seja $ABCD$ um quadrilátero inscritível e $P=BD \cap AC$. Os pés das perpendiculares de $P$ aos lados $AB$ e $CD$ são $X$ e $Y$. Se $M$ e $N$ são os pontos médios dos lados $BC$ e $AD$, prove que $MN \perp XY$.    
+\end{problem*}
+
+\begin{problem*}
+   Uma máquina tem dois botões: um deles dobra um número inteiro e o outro aumenta ele em $1$ unidade. Por exemplo, apertando os botões dessa máquina é possível realizar as seguintes operações:
+
+$$1 \rightarrow_{+1} 2 \rightarrow_{\times 2} 4 \rightarrow_{+1} 5.$$
+
+\noindent Se no início você começa com o número $0$, qual o número mínimo de vezes que você precisa apertar botões dessa máquina para obter:
+\begin{enumerate}[a)]
+\item $100$?
+\item $2024$?
+\end{enumerate} 
+\end{problem*}
+
+
+\nocite{*}
+\vfill
+
+\end{document}

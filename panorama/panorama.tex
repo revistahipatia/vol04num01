@@ -1,0 +1,517 @@
+\documentclass{hipatia}
+
+\usepackage{amsrefs}
+\usepackage{amsmath}
+%\usepackage[active]{srcltx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsopn}
+\usepackage{bbm,amsthm}
+\usepackage{amscd}
+%\usepackage[pdftex]{color}
+%\usepackage{draftwatermark}
+\usepackage{stdclsdv}
+\usepackage{tocloft}
+%\usepackage{showkeys}
+%\usepackage{amsintx}
+\usepackage{amsxtra}
+\usepackage{upref}
+\usepackage{epstopdf}
+%\usepackage{graphicx,color}
+\usepackage{hyperref}
+\usepackage{longtable}
+%\usepackage{showlabels}
+\usepackage{graphicx}
+%\usepackage[english]{babel}
+%\usepackage{soul}
+\usepackage{array}
+\usepackage{todonotes}
+\usepackage{mathrsfs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{maintheorem}{Main Theorem}
+\newtheorem*{addendum}{Addendum}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{\bf Remark}
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+
+\newcommand{\intav}[1]{\mathchoice {\mathop{\vrule width 6pt height 3 pt depth  -2.5pt
+\kern -8pt \intop}\nolimits_{\kern -6pt#1}} {\mathop{\vrule width
+5pt height 3  pt depth -2.6pt \kern -6pt \intop}\nolimits_{#1}}
+{\mathop{\vrule width 5pt height 3 pt depth -2.6pt \kern -6pt
+\intop}\nolimits_{#1}} {\mathop{\vrule width 5pt height 3 pt depth
+-2.6pt \kern -6pt \intop}\nolimits_{#1}}}
+
+\newcommand{\intavl}[1]{\mathchoice {\mathop{\vrule width 6pt height 3 pt depth  -2.5pt
+\kern -8pt \intop}\limits_{\kern -6pt#1}} {\mathop{\vrule width 5pt
+height 3  pt depth -2.6pt \kern -6pt \intop}\nolimits_{#1}}
+{\mathop{\vrule width 5pt height 3 pt depth -2.6pt \kern -6pt
+\intop}\nolimits_{#1}} {\mathop{\vrule width 5pt height 3 pt depth
+-2.6pt \kern -6pt \intop}\nolimits_{#1}}}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+
+
+\newcommand{\mathfs}[1]{\mathscr{#1}}
+
+\newcommand{\un}{\underline}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mb}{\mathbf}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\vf}{\varphi}
+\newcommand{\A}{\mc{A}}
+\newcommand{\B}{\mc{B}}
+\newcommand{\cc}{\mc{C}}
+\newcommand{\HH}{\mc{H}}
+\newcommand{\M}{\mc{M}}
+\newcommand{\nn}{\mc{N}}
+\newcommand{\rr}{\mc{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\F}{\mathfs{F}}
+\newcommand{\Hol}[1]{{\textrm{H\"ol}}_{#1}}
+
+
+\renewcommand{\P}[1]{{\mathbb{P}}\left[{#1}\right]}
+\renewcommand{\exp}[1]{{\rm exp}_{#1}}
+\newcommand{\Exp}[1]{{\rm Exp}_{#1}}
+\newcommand{\FB}[2]{{\rm FB}\left({#1},{#2}\right)}
+\newcommand{\E}[1]{{\mathbb{E}}\left[{#1}\right]}
+\newcommand{\EE}[2]{{\mathbb{E}}\left[{#1}|{#2}\right]}
+\newcommand{\CR}[1]{{\rm CR}\left({#1}\right)}
+\newcommand{\dist}[1]{{\rm dist}\left({#1}\right)}
+\renewcommand{\Im}[1]{{\rm Im}\left({#1}\right)}
+\newcommand{\ind}{\mathbbm{1}}
+\newcommand{\Lip}{{\rm Lip}}
+\newcommand{\Sas}{d_{\rm Sas}}
+\newcommand{\inj}{{\rm inj}}
+\newcommand{\nuh}{{\rm NUH}}
+\newcommand{\simN}{\stackrel{N}\sim}
+\newcommand{\g}{{\overline g}}
+\newcommand{\dd}{{\overline d}}
+\newcommand{\mm}{M^*}
+\newcommand{\reg}{M\backslash{\rm Sing}}
+\newcommand{\sing}{{\rm Sing}}
+\newcommand{\Sh}{{\widehat\Lambda}}
+
+
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.2ex\left\vert\kern-0.2ex\left\vert #1 
+    \right\vert\kern-0.2ex\right\vert\kern-0.2ex\right\vert}}
+\newcommand{\hatg}{{\widehat g}}
+
+
+
+
+\newcommand{\colvec}[2][.8]{%
+  \scalebox{#1}{%
+    \renewcommand{\arraystretch}{.8}%
+    $\begin{bmatrix}#2\end{bmatrix}$%
+  }
+}
+
+\newcommand\YL[1]{{\color{orange}#1}}\newcommand\JB[1]{{\color{blue}#1}}\newcommand\SY[1]{{\color{red}#1}}
+\newcommand{\annotation}[1]{\marginpar{\tiny #1}}
+\newcommand{\margin}[1]{{\marginpar{\tiny  \textcolor{blue}{$\triangleright$ #1}}}}
+\newcommand{\ymargin}[1]{{\marginpar{\tiny \textcolor{orange}{{\bf{Y:}} #1}}}}
+
+
+\newcommand\yl[1]{\annotation{\YL{#1}}}
+\newcommand\sy[1]{\annotation{\SY{#1}}}
+\newcommand\jb[1]{\annotation{\JB{#1}}}
+\newcommand\deleted[1]{{\tiny\color{red} \st{#1}}}
+
+
+\title{Caos em bilhares dinâmicos}
+% Se for necessário diminuir a fonte do título 
+% para caber no quadro, use
+% \title{ \fontsize{28}{28}\selectfont Uma Nova Demonstração do\\  \fontsize{28}{28}\selectfont Teorema de Pitágoras}
+
+% O Subtítulo é o nome da seção da revista
+% Deve ser uma palavra de origem grega
+\subtitle{Panorama}
+\author{Yuri Lima}
+
+%\address{J\'er\^ome Buzzi, Laboratoire de Math\'ematiques d'Orsay, CNRS - UMR 8628. 
+%Universit\'e Paris-Saclay, 91405 Orsay, France}
+%\email{jerome.buzzi@math.cnrs.fr}
+%\address{Sylvain Crovisier, Laboratoire de Math\'ematiques d'Orsay, CNRS - UMR 8628. 
+%Universit\'e Paris-Saclay, 91405 Orsay, France}
+%\email{sylvain.crovisier@math.u-psud.fr}
+%\address{Yuri Lima, Departamento de Matem\'atica, Centro de Ci\^encias, Campus do Pici,
+%Universidade Federal do Cear\'a (UFC), Fortaleza -- CE, CEP 60455-760, Brasil}
+%\email{yurilima@gmail.com}
+
+
+\begin{document}
+\setcounter{page}{\panoramapage}
+\maketitle
+
+%\begin{abstract}
+Um dos exemplos clássicos em sistemas dinâmicos é o de bilhares, que foram
+introduzidos há mais de um século como simplificações do modelo de Boltzmann na Mecânica Estatística. Os bilhares podem exibir diferentes comportamentos dinâmicos, dos mais simples (totalmente integráveis) aos mais complexos (caóticos).
+Neste \textsc{Panorama}, discutiremos as diferentes classes de bilhares dinâmicos, com foco nos bilhares dispersivos, que possuem diversas propriedades caóticas. 
+%\end{abstract}
+
+
+
+\section{Introdução}
+
+Um bilhar dinâmico é um tipo de sistema que modela o movimento de partículas em um espaço. Este modelo matemático, surgido no início do Século XX, é extensivamente estudado e utilizado para compreender fenômenos complexos e comportamentos caóticos.
+
+A ideia básica do bilhar dinâmico é estudar o comportamento do movimento de partículas após múltiplas colisões que sofrem entre si e com a borda da região em que se encontram. Dependendo do formato da borda, a trajetória das partículas pode ser bem simples ou, contrariamente, extremamente caótica. Desta forma, bilhares dinâmicos são um tópico de pesquisa muito interessante em sistemas dinâmicos, e as ferramentas desenvolvidas em seu estudo fornecem métodos potentes que são aplicados em outros contextos da Matemática. 
+
+
+
+A maioria dos leitores deve conhecer o jogo de {\bf bilhar}. Presente na nossa vida cotidiana, ele consiste em uma mesa retangular, com seis buracos. Sobre a mesa, encontram-se bolas esféricas que se movem por meio de batidas de um taco. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.5]{fig51.png}
+\caption{Sinuca, com buracos, bolas e taco.}
+\end{figure}
+Uma vez que sofre a ação do taco, uma bola se move em movimento retilíneo, até uma das três situações ocorrer:
+a bola cai em um dos buracos; a bola se choca com a borda da mesa e então a trajetória da bola sofre uma reflexão; ou 
+a bola se choca com outra bola, e então a bola em movimento transfere parte de sua energia para a bola com que se choca.
+A partir deste momento, duas bolas passam a se mover, de acordo com as mesmas regras acima descritas, e assim sucessivamente. 
+
+%Na prática, em cada choque que ocorre as bolas sofrem uma dissipação/diminuição de energia, que pode decorrer por várias razões, dentre elas as condições externas (vento, por exemplo), a fricção que seus movimentos têm com o tecido e borda da mesa, ou por algum outro fator. Como já observamos inúmeras vezes no nosso dia-a-dia, depois de um tempo as bolas chegam a posições de repouso, quando então chega a vez do próximo jogador realizar seu movimento. 
+
+Quando as bolas se chocam com a borda ou entre si, como podemos identificar a trajetória que cada uma delas passa a ter? Na prática, há dissipação de energia devido a vários fatores como a fricção, portanto não sabemos. Isso ocorre também quando a bola se choca com a borda da mesa: se $\alpha$ é o ângulo que a trajetória faz com a mesa, medido a partir da direção perpendicular à mesa, então em um contexto ideal o ângulo de reflexão $\beta$ deve ser igual a $\alpha$.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.6]{fig55.png}
+\end{figure}
+Na prática, $\alpha$ e $\beta$ são apenas aproximadamente iguais. 
+Para melhor entender o efeito da borda da mesa no movimento das bolas, no que segue, vamos nos ater a uma situação bem simplificada, assumindo que:
+\begin{enumerate}[{\bf Hipótese 1}]
+\item[{\bf Hipótese 1:}] A mesa não possui buracos.
+\item[{\bf Hipótese 2:}] Temos apenas uma bola na mesa. Ela será representada por um ponto, que chamaremos de partícula. 
+\item[{\bf Hipótese 3:}] Não há dissipação de energia.
+\end{enumerate}
+Neste caso, $\alpha=\beta$. Este contexto caracteriza o que chamaremos de um {\bf bilhar dinâmico:} dado um domínio compacto $D$ do plano $\mathbb R^2$ ou do toro bidimensional $\mathbb T^2$, que chamaremos de {\bf mesa de bilhar}, consideramos uma partícula que se move com velocidade constante sobre a mesa e se choca de com a borda da mesa, tal que o ângulo de incidência é igual ao de reflexão em cada colisão.
+No que segue, discutiremos diferentes classes de bilhares dinâmicos.
+O leitor interessado pode consultar o livro \cite{chernov-markarian} para uma discussão detalhada do
+tópico.
+
+
+
+
+
+\section{Exemplos introdutórios bilhares dinâmicos}
+
+
+\subsection{Bilhar no círculo}
+
+Começamos considerando o bilhar em um círculo, que assumimos  possuir raio 1. Considere três colisões sucessivas, denotadas na figura abaixo por $A,B,C$. É fácil notar que os triângulos $ABO$ e $BCO$ são isósceles, donde $AB=BC$. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.5]{fig59.png}
+\caption{Bilhar no círculo.}
+\end{figure}
+Portanto, todas as cordas determinadas por colisões sucessivas em uma trajetória possuem o mesmo tamanho $2\ell$. Quando $2\ell$ coincide com o tamanho do lado de um $n$--ágono regular, a trajetória da partícula será {\bf periódica}, igual a um $n$--ágono regular. Mas, em geral, $2\ell$ difere de todos os tamanhos de lados e diagonais de polígonos regulares, e daí obtemos uma {\bf trajetória aperiódica}, em que a sequência de batidas nunca fecha.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{fig65.png}
+\caption{Parte de uma trajetória aperiódica; o círculo vermelho é tangente a todas as cordas da trajetória.}
+\end{figure}
+Em ambos os casos, é fácil notar pelo teorema de Pitágoras que as cordas determinadas por uma trajetória são tangentes a uma mesma círculo de raio $\sqrt{1-\ell^2}$ e concêntrica à original. 
+Este círculo menor é chamado de {\bf cáustica}, que em grego significa ``queimar'': se imaginarmos que a trajetória da partícula é um raio de luz, então por tangenciar o círculo menor para sempre, ele se aquece indefinidamente, justificando sua nomenclatura.
+
+
+\subsection{Bilhar na elipse}
+
+Agora consideramos uma mesa de bilhar no formato de uma elipse. 
+Relembre que, dados $F_1,F_2$ dois pontos do plano e $2a>\overline{F_1F_2}$, a elipse determinada por $F_1,F_2,2a$ é o conjunto de pontos do plano
+$$
+\mathcal E=\{P:\overline{PF_1}+\overline{PF_2}=2a\}.
+$$
+Os pontos $F_1$ e $F_2$ são chamados {\bf focos}.
+Ao contrário do círculo, as retas normais à elipse já não mais todas passam por um mesmo ponto.
+Ainda assim, há, felizmente, diversas analogias das trajetórias dos bilhares no círculo e na elipse. 
+
+Começamos exibindo exemplos de algumas trajetórias periódicas. Seja $AB$ o eixo horizontal da elipse. É possível, por exemplo, inscrever um triângulo $ABC$ na elipse de modo os ângulos de incidência e reflexão coincidem em cada um dos vértices; isto define uma trajetória periódica com três batidas. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{fig71.png}
+\end{figure}
+Mais geralmente, para cada $n$, é possível inscrever uma trajetória periódica de período $n$ (exatamente $n$ batidas). Novamente, é muito difícil uma trajetória ser periódica, e a maioria delas é aperiódica, nunca passando por um mesmo ponto de batida. Adicionalmente, o bilhar na elipse também possui cáusticas. Porém, aqui temos dois tipos diferentes delas: se as duas primeiras batidas ocorrem em pontos $A$ e $B$ tais que $AB$ não intersecte o segmento $F_1F_2$, então todas as cordas desta trajetória são tangentes a uma elipse menor, de mesmos focos $F_1,F_2$ da original; se $AB$ intersecta $F_1F_2$ em seu interior, então existe uma hipérbole com focos $F_1,F_2$ tal que todas as cordas determinadas por batidas sucessivas são tangentes a $\mathcal H$.
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{fig73.png}
+\caption{Cáusticas na elipse.}
+\end{figure}
+
+E se o segmento $AB$ passar por um dos focos, digamos $F_1$? Neste caso, o teorema de Poncelet fornece a resposta. 
+
+\begin{theorem}[Poncelet]
+Seja $\mathcal E$ uma elipse de focos $F_1,F_2$. Dado um ponto $A$ da elipse, seja $\ell$ a reta normal à elipse passando por $A$. Então os ângulos que $AF_1$ e $AF_2$ fazem com $\ell$ são iguais. 
+\end{theorem}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{fig75.png}
+\end{figure}
+
+Pelo teorema acima, se $AB$ passa por $F_1$, então todas as cordas definidas por batidas sucessivas passam pelos focos, alternadamente. Neste caso, podemos considerar os pontos $F_1$ e $F_2$ como cáusticas dessas trajetórias.
+
+As propriedades do círculo e elipse valem, de fato, para qualquer mesa de bilhar convexa (e suficientemente regular). Estes são resultados profundos, decorrentes de argumentos em dinâmica conservativa e teoria KAM (devida a Kolomogorov, Arnold e Moser). O leitor interessado pode consultar
+\cite{fejoz} sobre este tópico.
+
+
+
+
+
+
+
+
+\subsection{Bilhar no retângulo}\label{ss-retangulo}
+
+Agora focamos no bilhar que estamos mais acostumados, cuja mesa tem formato retangular.
+Considere uma trajetória como na figura ao lado. Notamos que se o primeiro ângulo de incidência 
+é $\alpha$, então todos os ângulos serão $\alpha$ ou $90^\circ-\alpha$.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{fig78.png}
+%\caption{Figura 78: ângulos no retângulo}
+\end{figure}
+Mesmo assim, a trajetória da partícula pode ser extremamente complicada.
+Para melhor entender esse comportamento, utilizamos uma ideia advinda da ótica. 
+
+Ao invés de refletir a trajetória, refletimos a mesa de bilhar: podemos considerar a trajetória continuando {\bf em linha reta} nessa mesa refletida, sem nenhuma mudança de ângulo.
+Podemos realizar esse processo em cada batida, indicando como as orientações dos lados do retângulo mudam. No caso da trajetória da figura acima, que realiza quatro batidas nos pontos $A,B,C,D$, as reflexões são descritas abaixo. 
+Portanto, após essas quatro colisões, a mesa volta a ser a mesma mesa. 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{fig83.png}
+%\caption{Figura 83: colisão em $D$}
+\end{figure}
+
+
+Para melhor entender esse processo, vamos reexplicá-lo de outro modo. Considere a mesa original, e três de suas reflexões como na figura abaixo. Os lados esquerdo e direito coincidem, assim como os lados superior e inferior. Portanto, quando a partícula colide no ponto $C$, podemos representar a continuação da trajetória no ponto $C'$ abaixo.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{fig85.png}
+\end{figure}
+Assim, em uma mesa quatro vezes maior, a trajetória da partícula sempre segue em linha reta, levando-se em conta de que as bordas esquerda e direita são as mesmas, assim como as bordas superior e inferior. Estas identificações definem a mesa maior como sendo o toro bidimensional $\mathbb T^2$.
+
+Este método pode ser aplicado a qualquer mesa de bilhar poligonal em que os ângulos internos
+são múltiplos racionais de $\pi$. Neste caso, o grupo de simetria dos polígono é finito,
+e todas as reflexões possíveis definem uma {\bf superfície de translação}, onde a trajetória original do bilhar é identificada com uma trajetória retilínea. O estudo de superfícies de translação é uma área que relaciona Geometria, Sistemas Dinâmicos e Topologia, e a partir dela podemos deduzir diversas propriedades interessantes de tais mesas de bilhar. Notamos, porém, que se algum ângulo interno for um múltiplo irracional de $\pi$, então o problema ainda não possui 
+compreensão satisfatória. O livro \cite{translation} possui uma excelente introdução ao tópico de superfícies
+de translação.
+
+
+
+\section{Bilhares dispersivos}
+
+
+O matemático russo-americano Yakov Sina\u{\i} iniciou, no final da década de 1960, um estudo sistemáticos de bilhares caóticos.
+Motivado pela ótica, Sina\u{\i} considerou bilhares em que o formato do bordo é côncavo do ponto de vista da partícula. Veja um exemplo na figura abaixo.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.4]{fig93.png}
+\end{figure}
+
+Sempre que um feixe trajetórias paralelas se choca com o bordo, ele se dispersa.
+Portanto, se imaginarmos um conjunto de trajetórias incialmente bem próximas, após algumas batidas elas ficam praticamente independentes, espalhando-se por toda a mesa, indicando uma {\bf sensibilidade às condições iniciais}.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.3]{fig92.png}
+\end{figure}
+
+
+Estes bilhares (em que o bordo sempre é côncavo do ponto de vista da partícula), são hoje conhecidos como {\bf bilhares de Sina\u{\i}} ou {\bf bilhares dispersivos}. Eles também podem
+ser construídos no toro bidimensional $\mathbb T^2$: considerando um domínio fundamental igual a um quadrado de lado 1, considere dois obstáculos circulares, um deles localizado no centro do quadrado em um dos vértices do quadrado, como na figura abaixo.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{fig97.png}
+\end{figure}
+Descrevemos também uma possível trajetória, levando-se em conta as identificações dos lados paralelos.
+
+Sina\u{\i} provou diversas propriedades caóticas de tais bilhares. Em particular, ele mostrou que os bilhares dispersivos são {\bf ergódicos}. Em poucas palavras, este conceito significa que com 100\% de chance as trajetórias se espalham por toda a mesa.
+
+
+\subsection{Motivação: o movimento de um elétron em um metal}
+
+Em 1905, o físico teórico e matemático holandês Hendrik Lorentz propôs um modelo que pode ser interpretado como um bilhar dispersivo. Lorentz queria modelar o movimento de um elétron dentro de um metal. Por serem bem mais pesadas do que o elétron, Lorentz assumiu que as moléculas de metal são fixas, cada uma delas representada por uma esfera, e que o elétron se move em linha reta e colide com as moléculas do metal por meio de reflexões elásticas. Este modelo é conhecido como {\bf gás de Lorentz}. Se imaginarmos que o metal é formado por dois tipos de moléculas, dispostas periodicamente no plano, então o elétron se move em um bilhar dispersivo conforme a figura abaixo. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{fig109.png}
+\caption{Gás de Lorentz, que pode ser interpretado como um bilhar dispersivo.}
+\end{figure}
+
+
+
+\subsection{O conceito de entropia}
+
+Uma maneira de entender as trajetórias de um bilhar é por meio do sistema dinâmico associado, chamado {\bf transformação de bilhar}. A transformação de bilhar é a função que, a cada posição $p$ no bordo da mesa $D$ e ângulo $\alpha$ medido em $p$ com respeito à reta normal, associa a próxima posição de batida $p'$ e o próximo ângulo de incidência $\alpha'$. Em outras, palavras $f(p,\alpha)=(p',\alpha')$ descreve a evolução da trajetória que começa a partir da condição inicial $(p,\alpha)$. A iteração de $f$ uma quantidade $n$ de vezes fornece $f^n(p,\alpha)=(p_n,\alpha_n)$ onde $p_n$ é a posição da $n$--ésima batida e $\alpha_n$ é o ângulo de incidência associado.
+
+Esperando que $f$ exiba um comportamento caótico, a sequência de pontos $(p_n,\alpha_n)$ deve ser bastante variada. Uma das maneiras de entender esta variabilidade é por meio da {\bf teoria ergódica}, área que estuda o comportamento de sistemas dinâmicos na presença de {\bf probabilidades invariantes}. Informalmente, uma probabilidade é invariante se a evolução no tempo por $f$ preserva o ``tamanho'' dos conjuntos. Formalmente, se $f:X\to X$ é uma transformação, então uma probabilidade $\mu$ em $X$ é $f$--invariante se 
+$$
+\mu(f^{-1}A)=\mu(A)
+$$
+para todo conjunto $A$ (a definição precisa requer a discussão de conjuntos mensuráveis e sigma-álgebra, que não faremos aqui).
+Do ponto de vista probabilístico, isto diz que a chance de tomar um ponto $x$ aleatoriamente e ter que $x\in A$ coincide com a chance de que $f(x)\in A$. 
+
+Esta propriedade é encontrada em modelos advindos da física. Na verdade, tais modelos possuem, em geral, diversas probabilidades invariantes. Como descrever aquela que possui a maior quantidade de caos?
+Uma das maneiras de responder a esta pergunta é por meio da noção de {\bf entropia}.
+Motivados pelas ideias de {\bf teoria da informação} desenvolvidas por Shannon na década de 1950, Kolmogorov e Sina\u{\i} desenvolveram uma teoria que, a cada probabilidade invariante $\mu$, associa um número não-negativo $h(\mu)$, chamado entropia de $\mu$. 
+
+Formalmente, para cada partição $\mathfs P=\{A_1,\ldots,A_k\}$ de $X$, definimos a entropia de 
+$\mathfs P$ com respeito à probabilidade $\mu$ por 
+$$
+H(\mathfs P)=-\sum_{i=1}^k \mu(A_i)\log\mu(A_i).$$
+Este número, que é não-negativo, pode ser interpretado da seguinte forma: tomando-se ``aleatoriamente''
+um ponto $x\in X$, qual o preço que devemos pagar para saber qual $A_i$ contém $x$? Este preço é igual a
+$H(\mathfs P)$. 
+
+Agora queremos saber o preço a ser pago para tomar $x\in X$ e saber em quais elementos de $\mathfs P$ caem os pontos $x,f(x),\ldots,f^{n-1}(x)$. Este preço é igual a
+$$
+H(\mathfs P; n)=-\sum_{B\in \mathfs P_n} \mu(B)\log \mu(B),
+$$
+onde a soma é realizada sobre todos os conjuntos $B$ da forma 
+$A_{i_0}\cap f^{-1}(A_{i_1})\cap\cdots f^{-(n-1)}(A_{i_{n-1}})$.
+A entropia de $\mu$ com respeito a $\mathfs P$ é definida como a taxa de crescimento linear de 
+$H(\mathfs P;n)$:
+$$
+h(\mu,\mathfs P)=\lim_{n\to+\infty} \frac{1}{n}H(\mathfs P;n).
+$$
+Finalmente, definimos a entropia de $\mu$.
+
+
+\begin{definition}[Entropia]
+A {\bf entropia} de $\mu$ com respeito a $f$ é definida por
+$$
+h(\mu)=\sup\{h(\mu,\mathfs P):\mathfs P\text{ partição finita}\}.
+$$
+\end{definition}
+
+
+Intuitivamente, se a entropia de $\mu$ é $h$, então tipicamente o número de sequências 
+observáveis de comprimento $n$ cresce como $e^{hn}$. Portanto, quanto maior $h$,
+maior a riqueza de trajetórias.
+
+Uma discussão mais precisa sobre este conceito pode ser encontrada em \cite{viana-oliveira}.
+
+\subsection{Medidas de máxima entropia}
+
+Dentre as probabilidades, a que identifica a maior caoticidade de $f$ é a que tem a maior entropia.
+
+\begin{definition}[Medida de máxima entropia]
+Dizemos que uma probabilidade invariante $\mu$ é {\bf medida de máxima entropia} para $f$ se, dentre todas
+as probabilidades invariantes, $\mu$ maximiza a entropia:
+$$
+h(\mu)=\sup\{h(\nu):\nu\text{ é probabilidade invariante}\}.
+$$
+\end{definition}
+
+Entender quando uma transformação $f$ possui uma medida de máxima entropia e se ela é única constitui
+uma intensa área de pesquisa em Sistemas Dinâmicos. Desde a década de 1970, esta pergunta vem sendo investigada
+para diversas classes de modelos diferentes. Nos últimos dez anos, presenciamos os primeiros resultados
+para os bilhares dispersivos (sim, apenas recentemente estas perguntas foram respondidas, ainda que de modo
+parcial). Hoje em dia, diversos trabalhos contribuíram para uma melhor compreensão desta pergunta:
+\begin{enumerate}[$\circ$]
+\item Baladi e Demers provaram que uma grande classe de bilhares dispersivos possuem uma única medida de máxima entropia \cite{baladi-demers}.
+\item Baladi, Buzzi, Demers, Lima e Matheus mostraram que o número de trajetórias periódicas desta grande classe de bilhares dispersivos cresce exponencialmente rápido como $e^{hn}$, onde $h$ é a entropia máxima
+\cite{baladi-demers,buzzi,lima-matheus}.
+\item Lima, Obata e Poletti mostraram que os bilhares dispersivos possuem no máximo uma medida de máxima entropia ``bem comportada'' (chamada de adaptada) \cite{lop}.
+\item Em 2026, Climenhaga e Day forneceram uma prova de que os bilhares dispersivos sempre possuem uma única medida de máxima entropia \cite{climenhaga-day}.
+\end{enumerate}
+Notamos que uma trajetória periódica do bilhar não significa apenas que a trajetória passa novamente pelo mesmo ponto de partida da mesa, mas que ela deve voltar também com o mesmo ângulo! Até em bilhares dispersivos simples, identificar tais trajetórias não é uma tarefa simples.
+
+As ferramentas utilizadas nas provas dos resultados acima são bastante variadas, e ajudaram a desenvolver a área com novas técnicas que agora podem ser aplicadas em outros contextos.
+
+Ainda há, porém, muito a ser compreendido. Deixamos aqui um problema que permanece
+em aberto, para bilhares triangulares. Se o triângulo for acutângulo, então o triângulo
+órtico constitui uma trajetória periódica de período três. Se o triângulo for obtusângulo,
+então não se sabe se existem trajetórias periódicas.
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{translation}
+Athreya, Jayadev S. e Masur, Howard,
+\emph{Translation surfaces}, Graduate Studies in Mathematics \textbf{242}
+(2024).
+
+\bibitem{baladi-demers}
+V. Baladi e M. Demers, \emph{On the measure of maximal entropy for finite horizon {S}inai
+              billiard maps}, J. Amer. Math. Soc. {\bf 33} (2020).
+
+\bibitem{buzzi}
+J. Buzzi,
+\emph{The degree of Bowen factors and injective codings of diffeomorphisms},
+J. Mod. Dyn. {\bf 16} (2020).
+
+\bibitem{climenhaga-day}
+Vaughn Climenhaga e Jason Day,
+\emph{Every finite horizon Sinai billiard map has a unique measure of maximal entropy}, arxiv:2604.25881
+
+
+
+\bibitem{fejoz}
+J. Fejoz, Introduction to KAM theory, with a view to celestial mechanics,
+in \emph{Variational methods in imaging and geometric control
+Radon Series on Comput. and Applied Math.} \textbf{18}, (2016).
+
+
+\bibitem{chernov-markarian}
+N. Chernov e R. Markarian, \emph{Chaotic billiards}.
+Math. Surveys Monogr. {\bf 127} (2006).
+
+
+\bibitem{lima-matheus}
+Y. Lima e C. Matheus,
+\emph{Symbolic dynamics for non-uniformly hyperbolic surface maps with discontinuities},
+Ann. Sci. Éc. Norm. Supér. (4) {\bf 51} (2018).
+
+\bibitem{lop}
+Yuri Lima, Davi Obata e Mauricio Poletti,
+\emph{Measures of maximal entropy for non-uniformly hyperbolic maps},
+aceito em JEMS (2026).
+
+
+
+\bibitem{viana-oliveira}
+M. Viana K. Oliveira, \emph{Fundamentos da Teoria Ergódica}.
+Sociedade Brasileira de Matemática (2019).
+
+
+
+\end{thebibliography}
+
+
+\end{document}
+
