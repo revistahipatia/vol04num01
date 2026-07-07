@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" role="img" aria-label="Trajetoria refletida">
+  <title>Trajetoria refletida</title>
+  <rect x="0" y="0" width="900" height="620" fill="#ffffff"/>
+  <circle cx="406.071" cy="313.661" r="146.429" fill="none" stroke="#334155" stroke-width="1.500"/>
+<circle cx="772.143" cy="167.232" r="87.857" fill="none" stroke="#334155" stroke-width="1.500"/>
+<circle cx="625.714" cy="460.089" r="80.536" fill="none" stroke="#334155" stroke-width="1.500"/>
+  <polyline points="40.000,386.875 260.757,331.686" fill="none" stroke="#0f766e" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="40.000" cy="386.875" r="3.200" fill="#1d4ed8"/>
+<circle cx="260.757" cy="331.686" r="3.200" fill="#b91c1c"/>
+</svg>

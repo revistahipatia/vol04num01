@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-label="Reproducao aproximada da fig97">
+  <title>Reproducao aproximada da fig97</title>
+  
+  <defs><clipPath id="clipBox"><rect x="78.000" y="78.000" width="844.000" height="844.000"/></clipPath></defs>
+  <g clip-path="url(#clipBox)">
+  <circle cx="-344.000" cy="-344.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="-344.000" cy="500.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="-344.000" cy="1344.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="500.000" cy="-344.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="500.000" cy="500.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="500.000" cy="1344.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="1344.000" cy="-344.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="1344.000" cy="500.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+<circle cx="1344.000" cy="1344.000" r="236.320" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000"/>
+  <path d="M 78.000 78.000 L 318.540 78.000 A 240.540 240.540 0 0 1 78.000 318.540 Z" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000" stroke-linejoin="round"/>
+<path d="M 922.000 78.000 L 681.460 78.000 A 240.540 240.540 0 0 0 922.000 318.540 Z" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000" stroke-linejoin="round"/>
+<path d="M 78.000 922.000 L 318.540 922.000 A 240.540 240.540 0 0 0 78.000 681.460 Z" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000" stroke-linejoin="round"/>
+<path d="M 922.000 922.000 L 681.460 922.000 A 240.540 240.540 0 0 1 922.000 681.460 Z" fill="#fee08b" stroke="#3f3f46" stroke-width="5.000" stroke-linejoin="round"/>
+  <line x1="449.428" y1="78.000" x2="78.000" y2="424.709" stroke="#ef3b3b" stroke-width="7.000" stroke-linecap="round"/>
+<line x1="922.000" y1="424.709" x2="688.137" y2="643.008" stroke="#ef3b3b" stroke-width="7.000" stroke-linecap="round"/>
+<line x1="688.137" y1="643.008" x2="542.857" y2="922.000" stroke="#ef3b3b" stroke-width="7.000" stroke-linecap="round"/>
+<line x1="542.857" y1="78.000" x2="442.464" y2="270.791" stroke="#ef3b3b" stroke-width="7.000" stroke-linecap="round"/>
+<line x1="442.464" y1="270.791" x2="299.025" y2="172.908" stroke="#ef3b3b" stroke-width="7.000" stroke-linecap="round"/>
+<line x1="299.025" y1="172.908" x2="789.289" y2="278.617" stroke="#ef3b3b" stroke-width="7.000" stroke-linecap="round"/>
+  </g>
+  <rect x="78.000" y="78.000" width="844.000" height="844.000" fill="none" stroke="#3f3f46" stroke-width="6.000" stroke-dasharray="16 10"/>
+  <circle cx="78.000" cy="424.709" r="14.000" fill="#ffffff" stroke="#4b5563" stroke-width="5.000"/>
+<circle cx="922.000" cy="424.709" r="14.000" fill="#ffffff" stroke="#4b5563" stroke-width="5.000"/>
+<circle cx="542.857" cy="922.000" r="14.000" fill="#ffffff" stroke="#4b5563" stroke-width="5.000"/>
+<circle cx="542.857" cy="78.000" r="14.000" fill="#ffffff" stroke="#4b5563" stroke-width="5.000"/>
+  
+  
+  <path d="M 273.849 224.110 L 263.714 251.355 L 291.591 243.116" fill="none" stroke="#ef3b3b" stroke-width="6.000" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 615.975 753.439 L 615.497 782.504 L 639.036 765.448" fill="none" stroke="#ef3b3b" stroke-width="6.000" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 399.548 225.767 L 370.744 221.850 L 384.893 247.243" fill="none" stroke="#ef3b3b" stroke-width="6.000" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="542.857" y="44.000" fill="#111111" font-size="70.000" font-family="STIX Two Math, Times New Roman, serif" font-style="italic" text-anchor="middle">x</text>
+<text x="542.857" y="974.000" fill="#111111" font-size="70.000" font-family="STIX Two Math, Times New Roman, serif" font-style="italic" text-anchor="middle">x&apos;</text>
+<text x="982.000" y="424.709" fill="#111111" font-size="70.000" font-family="STIX Two Math, Times New Roman, serif" font-style="italic" text-anchor="end" dominant-baseline="middle">y</text>
+<text x="58.000" y="424.709" fill="#111111" font-size="70.000" font-family="STIX Two Math, Times New Roman, serif" font-style="italic" text-anchor="end" dominant-baseline="middle">y&apos;</text>
+</svg>
