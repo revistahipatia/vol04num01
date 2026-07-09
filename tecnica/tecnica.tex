@@ -87,7 +87,7 @@ com $\ell$ suficientemente grande de modo que $N>1$. Pela propriedade de $f$, co
 
 Uma outra opção seria encontrar $f$ tal que, para $m$ suficientemente grande, \textit{todos} os fatores primos de $f(m)$ sejam congruentes a $b$ módulo $a$, à exceção, possivelmente, de uma quantidade finita de primos, como ocorre em $f(x)=x^2+1$, para o caso $4k+1$. De fato, tomando $m_\ell=(Pp_1p_2\ldots p_t)^{\ell}$, em que $P$ é o produto dos primos que são possíveis exceções, observe que, para $\ell$ suficientemente grande, os expoentes da fatoração em primos de $f(m_\ell)$ estão limitados pelo expoente do termo independente $f(0)$ (podemos supor $f(0) \ne 0$, tomando $f$ irredutível em $\Z[x]$). Isso significa que a sequência $(a_\ell)$ definida por $a_\ell=|f(m_\ell)|$ é limitada. Porém, para $f$ não constante e $\ell$ arbitrariamente grande, ela deveria ``explodir''.
 
-A principal dificuldade dessas abordagens reside, em geral, na construção de polinômios com as propriedades desejadas. Ainda assim, essa ideia pode ser explorada em outros contextos. Encerramos a discussão apresentando um caso particularmente interessante em que tal abordagem é possível, a saber, a existência de infinitos primos da forma $nk+1$, para um inteiro positivo fixo $n$. A demonstração utiliza a noção de \textit{polinômios ciclotômicos}. Para saber mais a respeito, veja \cite{sanna2022survey}
+A principal dificuldade dessas abordagens reside, em geral, na construção de polinômios com as propriedades desejadas. Ainda assim, essa ideia pode ser explorada em outros contextos. Encerramos a discussão apresentando um caso particularmente interessante em que tal abordagem é possível, a saber, a existência de infinitos primos da forma $nk+1$, para um inteiro positivo fixo $n$. A demonstração utiliza a noção de \textit{polinômios ciclotômicos}. Para saber mais a respeito, veja \cite{sanna2022survey}.
 
 \begin{theorem*}
 Seja $n$ um inteiro positivo. Existem infinitos números primos da forma $nk+1$, com $k \in \Z$.
@@ -188,7 +188,7 @@ Logo, quando $a>C/c$, conseguimos muitos primos em intervalos da forma $[n,an]$ 
 Antes de provar os Teoremas~\ref{thm:Chebyshev}~e~\ref{thm:Bertrand}, vamos enunciar dois lemas necessários para prová-los.
 
 \begin{lemma*}\label{aff:1}
-Sejam $n \in \Z_{>0}$ e $p$ um número primo. Seja $\theta_p$ o inteiro tal que $p^{\theta_p} \le 2n < p^{\theta_p+1}$. Então
+Sejam $n \in \Z_{>0}$ e $p$ um número primo. Seja $\theta_p$ o inteiro tal que $p^{\theta_p} \le 2n < p^{\theta_p+1}$. Então\footnote{\(\nu_p(n)\) é o maior número $m$ tal que $p^m$ divide $n$. (N. do E.)}
 \[\nu_p\left(\binom{2n}{n}\right) \le\theta_p.\]
 Em particular, se $p>\sqrt{2n}$, então o expoente de $p$ em $\binom{2n}{n}$ é $1$, e se $\frac{2n}{3} < p < n$, então $p$ não divide $\binom{2n}{n}$.
 \end{lemma*}
@@ -339,7 +339,7 @@ se, e somente se, $f(m)+f(n)$ é divisível por $p$.
 \[\Big(1-\frac{1}{p_1}\Big)\cdot\Big(1-\frac{1}{p_2}\Big)\cdot\Big(1-\frac{1}{p_3}\Big)\cdot\ldots=0.\]
 
 \prob Seja $\lambda > 1$ um número real. Denote por $p_n$ o $n$-ésimo número primo em ordem crescente.
-Prove que a sequência $(\lfloor \lambda p_n \rfloor\})$ possui infinitos divisores primos.
+Prove que a sequência $(\lfloor \lambda p_n \rfloor)$ possui infinitos divisores primos.
 
 \prob (Rioplatense 1999) Sejam \(p_1, p_2, \ldots, p_k\) \(k\) números primos distintos. Consideramos todos os inteiros positivos que utilizam apenas esses primos (não necessariamente todos) em sua fatoração em primos e organizamos esses números em ordem crescente, formando uma sequência infinita $a_1 < a_2 < \cdots < a_n < \cdots$. Prove que, para todo número \(c\), existe um \(n\) tal que $a_{n+1} - a_n > c$.
 
@@ -355,7 +355,7 @@ Determine todos os inteiros positivos $k$ para os quais existem inteiros positiv
 \bibliographystyle{abbrv}
 \def\bibfont{\footnotesize}
 \nocite{*}
-\bibliography{main}
+\bibliography{tecnica}
 
 % Mini bios 
 % Seja informal e divertido
