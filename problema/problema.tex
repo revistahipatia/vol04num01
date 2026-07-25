@@ -45,7 +45,7 @@
 %\date{10/07/2026}
 \let\widering\relax
 \newenvironment{sola}{\noindent \textbf{Solução:}}{}
-%Soluções da edicação anterior
+%Soluções da edição anterior
 \newenvironment{solb}{\noindent \textbf{Solução:}}{}
 %Soluções da edição atual
 
@@ -60,7 +60,7 @@
 
 \section{Problemas Universitários}
 
-\begin{problem*} Mostre que para qualquer primo $p > 17$, o número $$p^{32} - 1$$ é divisivel por $16320$.
+\begin{problem*} Mostre que para qualquer primo $p > 17$, o número $$p^{32} - 1$$ é divisível por $16320$.
 \end{problem*}
 
 \noindent \textbf{Solução} (Solução de Vinícius Leite).
@@ -88,12 +88,12 @@ Isso garante que 3, 5 e 17 dividem $p^{32}-1$.
 
 \textbf{Divisibilidade por $2^6$:}
 
-Fatorando a expressão recursivamente por diferença de quadrados, obtemos:
-$$p^{32}-1 = (p-1)(p+1)(p^2+1)(p^4+1)(p^8+1)(p^{16}+1)$$
+Fatorando a expressão recursivamente por diferença de quadrados, obtemos
+$$p^{32} - 1 = (p - 1)(p + 1)(p^2 + 1)(p^4 + 1)(p^8 + 1)(p^{16} + 1).$$
 
-Como $p$ é um primo maior que 17, $p$ é ímpar. Os termos $(p-1)$ e $(p+1)$ são inteiros pares consecutivos. Um deles é necessariamente múltiplo de 2 e o outro é múltiplo de 4. O produto $(p-1)(p+1)$ portanto, é múltiplo de 8 (ou seja, divisível por $2^3$).
+Como $p$ é um primo maior que 17, $p$ é ímpar. Os termos $(p - 1)$ e $(p + 1)$ são inteiros pares consecutivos. Um deles é necessariamente múltiplo de 2 e o outro é múltiplo de 4. O produto $(p - 1)(p + 1)$, portanto, é múltiplo de 8 (ou seja, divisível por $2^3$).
 
-Os quatro termos restantes da forma $(p^k+1)$ representam a soma de uma potência de base ímpar com 1, resultando sempre em números pares. Cada um desses quatro parênteses contribui com, pelo menos, um fator 2, totalizando um fator de $2^4$.
+Os quatro termos restantes da forma $(p^k + 1)$ representam a soma de uma potência de base ímpar com 1, resultando sempre em números pares. Cada um desses quatro parênteses contribui com, pelo menos, um fator 2, totalizando um fator de $2^4$.
 
 Multiplicando todas as contribuições, garantimos que $p^{32}-1$ é múltiplo de $2^3 \cdot 2^4 = 2^7$. Sendo divisível por $2^7$, é trivialmente divisível por $2^6$.
 
@@ -154,43 +154,43 @@ Portanto, tem-se que a sequência é limitada inferiormente por $\sqrt{c}$.
 Desenvolvendo a expressão dada pelo enunciado, tem-se que:
 
 \begin{center}
-$x_n = \dfrac{x_{n-1}^2 + c}{2x_{n-1}}$
+$x_n = \dfrac{x_{n-1}^2 + c}{2x_{n-1}}$.
 \end{center}
 
 Fazendo $x_n-x_{n-1}$:
 \begin{center}
-$x_n-x_{n-1}=\dfrac{x_{n-1}^2+c}{2x_{n-1}}-\dfrac{2x_{n-1}^2}{2x_{n-1}}$ 
+$x_n-x_{n-1}=\dfrac{x_{n-1}^2+c}{2x_{n-1}}-\dfrac{2x_{n-1}^2}{2x_{n-1}}$. 
 \end{center}
 
 \begin{center}
-$x_n-x_{n-1}=\dfrac{c-x_{n-1}^2}{2x_{n-1}}$ 
+$x_n-x_{n-1}=\dfrac{c-x_{n-1}^2}{2x_{n-1}}$. 
 \end{center}
 
 \begin{center}
-$x_n-x_{n-1}=-\left[\dfrac{(x_{n-1}+\sqrt{c})(x_{n-1}-\sqrt{c})}{2x_{n-1}}\right]$
+$x_n-x_{n-1}=-\left[\dfrac{(x_{n-1}+\sqrt{c})(x_{n-1}-\sqrt{c})}{2x_{n-1}}\right]$.
 \end{center}
 
-Como $x_{n-1}>0$, $x_{n-1}+\sqrt{c}>0$
+Como $x_{n-1}>0$, $x_{n-1}+\sqrt{c}>0$.
 
 \vspace*{0.5cm}
 
-Ademais, como visto no início da solução, $x_{n-1}\geq\sqrt{c}$, daí $x_{n-1}-\sqrt{c}\geq0$
+Ademais, como visto no início da solução, $x_{n-1}\geq\sqrt{c}$, daí $x_{n-1}-\sqrt{c}\geq0$.
 
 \vspace*{0.5cm}
 
-Logo, $x_n-x_{n-1}\leq 0 \Rightarrow x_n\leq x_{n-1}$
+Logo, $x_n-x_{n-1}\leq 0 \Rightarrow x_n\leq x_{n-1}$.
 
 \vspace*{0.5cm}
 
-Como a sequência é limitada inferiormente por $\sqrt{c}$ e ela é decrescente a partir do primeiro termo $n\geq1$, ela converge.
+Como a sequência é limitada inferiormente por $\sqrt{c}$ e decrescente a partir do primeiro termo $n\geq1$, ela converge.
 
 \vspace*{0.5cm}
 
-Como ela converge, $\lim_{x\to \infty}x_n = \lim_{x\to \infty}x_{n-1} = L > 0$
+Como ela converge, $\lim_{x\to \infty}x_n = \lim_{x\to \infty}x_{n-1} = L > 0$.
 
 \vspace*{0.5cm}
 
-Daí, tem-se que: 
+Daí, tem-se que
 
 \begin{center}
 $L=\dfrac{1}{2}(L+\dfrac{c}{L})$
@@ -209,10 +209,10 @@ $\Leftrightarrow L^2=c$
 \end{center}
 
 \begin{center}
-$\Leftrightarrow L=\sqrt{c}$
+$\Leftrightarrow L=\sqrt{c}$.
 \end{center}
 
-Portanto, está mostrado que o limite da sequência é $\sqrt{c}$
+Portanto, está mostrado que o limite da sequência é $\sqrt{c}$.
 
 \vspace*{0.5cm}
 
@@ -222,7 +222,7 @@ Curiosidade: A questão apresenta o método de Herão, também conhecido como m�
 \begin{problem*} 
 Calcule o determinante da matriz quadrada de ordem $n$, $A = (a_{ij})_{ij}$, definida por $$a_{ij} = \begin{cases}
     (-1)^{|i-j|}, \ \ \mbox{se} \ i \neq j \\ 2, \ \ \mbox{se} \ i=j
-\end{cases}$$
+\end{cases}.$$
 \end{problem*}
 
 
@@ -257,12 +257,12 @@ $$\det(A_n) = n+1$$
 
 Para provar que $\det(A_n) = n+1$ para qualquer $n \ge 1$, aplicaremos o Teorema de Jacobi:
 
-Seja $A$ uma matriz quadrada de ordem $n$ ($n \ge 2$). Se a uma fila (linha ou coluna) de $A$ for adicionado um múltiplo escalar de outra fila paralela a ela, obtemos uma matriz $B$ tal que:
-$$\det(A) = \det(B)$$
+\emph{Seja $A$ uma matriz quadrada de ordem $n$ ($n \ge 2$). Se a uma fila (linha ou coluna) de $A$ for adicionado um múltiplo escalar de outra fila paralela a ela, obtemos uma matriz $B$ tal que}
+$$\det(A) = \det(B).$$
 
 Em outras palavras: somar a uma linha (ou coluna) qualquer múltiplo de outra linha (ou coluna) não altera o valor do determinante. Isso nos ajudará a simplificar o cálculo do determinante da matriz genérica $A_n$.
 
-A representação expandida da matriz original $A_n$ é:
+A representação expandida da matriz original $A_n$ é
 {\footnotesize$$A_n = \begin{bmatrix}
 2 & -1 & 1 & -1 & \cdots & (-1)^{n-1} \\
 -1 & 2 & -1 & 1 & \cdots & (-1)^{n-2} \\
@@ -270,17 +270,17 @@ A representação expandida da matriz original $A_n$ é:
 -1 & 1 & -1 & 2 & \cdots & (-1)^{n-4} \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 (-1)^{n-1} & (-1)^{n-2} & (-1)^{n-3} & (-1)^{n-4} & \cdots & 2
-\end{bmatrix}$$}
+\end{bmatrix}.$$}
 
 \textbf{1. Operações nas Linhas:}
 
 Note que a presença de vários termos 1 e -1 alternados nos permite zerar grande parte da matriz simplesmente somando ou subtraindo as linhas entre si, logo, para toda linha $L_k$ exceto a primeira, aplicaremos a transformação $L_k \leftarrow L_k + (-1)^k L_1$. Note que $(-1)^k$ nos permite alternar entre soma e subtração com base na paridade da linha, resolvendo a alternância entre 1 e -1 e transformando a maior parte em 0, de brinde transformando (quase) todos os elementos da diagonal principal em 1.
 
 Para o elemento da diagonal $(j=k)$:
-$$a'_{kk} = 2 + (-1)^k(-1)^{k-1} = 2 - (-1)^{2k} = 2 - 1 = 1$$
+$$a'_{kk} = 2 + (-1)^k(-1)^{k-1} = 2 - (-1)^{2k} = 2 - 1 = 1.$$
 
 Para a primeira coluna $(j=1)$:
-$$a'_{k1} = (-1)^{k-1} + (-1)^k(2) = -(-1)^k + 2(-1)^k = (-1)^k$$
+$$a'_{k1} = (-1)^{k-1} + (-1)^k(2) = -(-1)^k + 2(-1)^k = (-1)^k.$$
 
 Após essas operações, a matriz assume a forma $A'_n$:
 $$A'_n = \begin{bmatrix}
@@ -296,10 +296,11 @@ $$A'_n = \begin{bmatrix}
 
 Seria muito agradável zerar todos os elementos da coluna 1 (exceto o primeiro), pois isso tornaria a matriz triangular superior. Note que, novamente, realizando somas e subtrações entre a primeira coluna e as demais colunas, podemos usar os elementos 1 da diagonal principal para zerar os elementos da primeira coluna. Para isso, aplicamos a transformação $C_1 \leftarrow C_1 - \sum_{k=2}^n (-1)^k C_k$. Note que, novamente, o $(-1)^k$ permite que alternemos entre soma e subtração, resolvendo a alternância entre 1 e -1 e zerando todos os elementos da primeira coluna, exceto o primeiro. Como as colunas $C_k$ ($k \ge 2$) possuem apenas o elemento 1 na linha $k$ e 0 nas demais posições abaixo da primeira linha, essa operação zera completamente todos os $a'_{k1}$ para $k \ge 2$. O elemento $a_{11}$ sofre a seguinte alteração:
 
-$$a''_{11} = 2 - \sum_{k=2}^n (-1)^k a_{1k} = 2 - \sum_{k=2}^n (-1)^k (-1)^{k-1} = 2 - \sum_{k=2}^n (-1)^{2k-1}$$
+\begin{align*}
+    a''_{11} &= 2 - \sum_{k=2}^n (-1)^k a_{1k} \\ &= 2 - \sum_{k=2}^n (-1)^k (-1)^{k-1} \\ &= 2 - \sum_{k=2}^n (-1)^{2k-1}.\end{align*}
 
-Como $2k-1$ é sempre um número ímpar, $(-1)^{2k-1} = -1$. Logo:
-$$a''_{11} = 2 - \sum_{k=2}^n (-1) = 2 + \sum_{k=2}^n 1 = 2 + (n-1) = n+1$$
+Como $2k-1$ é sempre um número ímpar, $(-1)^{2k-1} = -1$. Logo
+$$a''_{11} = 2 - \sum_{k=2}^n (-1) = 2 + \sum_{k=2}^n 1 = 2 + (n-1) = n+1.$$
 
 A matriz final $A''_n$ torna-se estritamente triangular superior:
 $$A''_n = \begin{bmatrix}
@@ -309,10 +310,10 @@ n+1 & -1 & 1 & -1 & \cdots & (-1)^{n-1} \\
 0 & 0 & 0 & 1 & \cdots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & 0 & \cdots & 1
-\end{bmatrix}$$
+\end{bmatrix}.$$
 
-O determinante de uma matriz triangular é dado pelo produto dos elementos de sua diagonal principal:
-$$\det(A_n) = (n+1) \cdot \prod_{k=2}^n 1 = n+1$$
+Como o determinante de uma matriz triangular é dado pelo produto dos elementos de sua diagonal principal,
+$$\det(A_n) = (n+1) \cdot \prod_{k=2}^n 1 = n+1.$$
 
 Isso conclui a demonstração formal da hipótese.
 
@@ -329,23 +330,28 @@ Chamemos de $A_n$ a matriz de ordem $n$ definida como no enunciado. Vejamos as p
 2 & -1 & 1 \\
 -1 & 2 & -1 \\ 
 1 & -1 & 2
-\end{bmatrix} \ \mbox{e} \ A_4 = \begin{bmatrix}
+\end{bmatrix} $$ 
+$$ \mbox{ e }A_4 = \begin{bmatrix}
 2 & -1 & 1 & -1\\
 -1 & 2 & -1 & 1 \\ 
 1 & -1 & 2 & -1 \\
 -1 & 1 & -1 & 2
-\end{bmatrix}$$
+\end{bmatrix}.$$
 
-Para calcular o determinante de $A_n$ notemos que, ao realizar operações elementares sobre as linhas do tipo $L_i \leftarrow L_i + L_j$, $i \neq j$, mantemos o determinante da matriz. Agora, veja que, fazendo a sequência de operações dadas a seguir a partir de $A_n$, $$L_1 \leftarrow L_1 + L_2$$ $$L_2 \leftarrow L_2 + L_3$$ $$\vdots$$ $$L_{n-1} \leftarrow L_{n-1} + L_n$$ obtemos a matriz $$\overline{A}_n = \begin{bmatrix}
+Para calcular o determinante de $A_n$ notemos que, ao realizar operações elementares sobre as linhas do tipo $L_i \leftarrow L_i + L_j$, $i \neq j$, mantemos o determinante da matriz. Agora, fazendo a sequência de operações dadas a seguir a partir de $A_n$, $$L_1 \leftarrow L_1 + L_2$$ $$L_2 \leftarrow L_2 + L_3$$ $$\vdots$$ $$L_{n-1} \leftarrow L_{n-1} + L_n$$ obtemos a matriz 
+{\footnotesize $$\overline{A}_n = \begin{bmatrix}
 1 & 1 & 0 & 0 & \cdots & 0 & 0 & 0\\
 0 & 1 & 1 & 0 & \cdots & 0 & 0 & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
 0 & 0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
 (-1)^{n-1} & (-1)^{n-2} & (-1)^{n-3} & (-1)^{n-4} & \cdots & 1 & -1 & 2
-\end{bmatrix}$$ que possui o mesmo determinante de $A_n$. Agora, calculamos o determinante de $\overline{A}_n$ pelo o Teorema de Laplace, usando a última linha. 
+\end{bmatrix}$$} que possui o mesmo determinante de $A_n$. Agora, calculamos o determinante de $\overline{A}_n$ pelo Teorema de Laplace, usando a última linha. 
 
-Veja que, as submatrizes de $\overline{A}_n$ obtidas ao eliminarmos a linha $n$ e coluna $k$, são matrizes triangulares com a diagonal principal com todas as entradas iguais a 1, e isso implica que os determinantes dessas submatrizes são todos iguais a 1. Portanto, \begin{align*}
-    \det A_n = \det \overline{A}_n =& (-1)^{n-1} \cdot (-1)^{n+1} \cdot 1 + (-1)^{n-2} \cdot (-1)^{n+2} \cdot 1 + \cdots\\ & + 1 \cdot (-1)^{n+n-2} \cdot 1 + (-1) \cdot (-1)^{n+n-1} \cdot 1 + 2 \cdot (-1)^{n+n} \cdot 1 \\ =& 1 + 1 + \cdots + 1 + 1 + 2 = (n-1) + 2 = n+1
+Veja que, as submatrizes de $\overline{A}_n$ obtidas ao eliminarmos a linha $n$ e coluna $k$, são matrizes triangulares com a diagonal principal com todas as entradas iguais a 1, e isso implica que os determinantes dessas submatrizes são todos iguais a 1. Portanto, 
+\begin{align*}
+    \det A_n &= \det \overline{A}_n \\ &= (-1)^{n-1} \cdot (-1)^{n+1} \cdot 1 + (-1)^{n-2} \cdot (-1)^{n+2} \cdot 1 + \cdots\\
+      & + 1 \cdot (-1)^{n+n-2} \cdot 1 + (-1) \cdot (-1)^{n+n-1} \cdot 1 + 2 \cdot (-1)^{n+n} \cdot 1 \\
+       &= 1 + 1 + \cdots + 1 + 1 + 2 = (n-1) + 2 = n+1
 \end{align*}
 
 Assim, $\det A_n = n+1$. 
@@ -358,7 +364,7 @@ Assim, $\det A_n = n+1$.
 
 
 \begin{problem*}
-Considere uma esfera de raio unitário centrada na origem de um sistemas de coordenadas $xyz$. Seja $C$ um pentágono regular inscrito na esfera e contido no plano $xy$. Determine a área da região contida na esfera cuja projeção com respeito à terceira coordenada coincide com a região delimitada por $C$.
+Considere uma esfera de raio unitário centrada na origem de um sistema de coordenadas $xyz$. Seja $C$ um pentágono regular inscrito na esfera e contido no plano $xy$. Determine a área da região contida na esfera cuja projeção com respeito à terceira coordenada coincide com a região delimitada por $C$.
 \end{problem*}
 
 \noindent \textbf{Solução:} 
@@ -368,16 +374,17 @@ Considere a projeção no plano $xy$ dada pela região poligonal limitada pelo p
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.35\linewidth]{hipatia pentagono1.png}
-    \caption{Projeção no plano xy}
+    \caption{Projeção no plano $xy$.}
 \end{figure}
 
 Os pontos da esfera que são projetados nessa região (aqui contando as partes superior e inferior da esfera que se projetam na região poligonal) formam uma região cuja área pode ser calculada através de $$A = 4\pi - 5 \cdot A_{\mbox{revolução}}$$ onde: $4\pi$ é a área da superfície esférica de raio 1 ($4\pi R^2$), e $A_{\mbox{revolução}}$ é a área da superfície de revolução obtida pela rotação da curva que pode ser parametrizada por $$\mathcal{C} : \begin{cases}
     x(t) = \cos(t), \\ y(t) = \sin(t)
-\end{cases} \ \ \ 0 \leq t \leq \frac{\pi}{5}$$ (cujo traço é o arco em destaque na figura), em torno do eixo $x$. Temos que, \begin{align*}
-    A_{\mbox{revolução}} &= 2\pi \int_{0}^{\frac{\pi}{5}} y(t)\sqrt{[x'(t)]^2 + [y'(t)]^2} \ dt \\ &= 2\pi \int_{0}^{\frac{\pi}{5}} \sin(t)\sqrt{[-\sin(t)]^2 + [\cos(t)]^2} \ dt = 2\pi \int_{0}^{\frac{\pi}{5}} \sin(t) \ dt \\ &= 2\pi \left[-\cos(t)\bigg|_{0}^{\pi/5}\right] = 2\pi(1 - \cos(\pi/5)) = \frac{(3 - \sqrt{5})\pi}{2}
+\end{cases} \ \ \ 0 \leq t \leq \frac{\pi}{5}$$ (cujo traço é o arco em destaque na figura), em torno do eixo $x$. Temos que
+\begin{align*}
+    A_{\mbox{revolução}} &= 2\pi \int_{0}^{\frac{\pi}{5}} y(t)\sqrt{[x'(t)]^2 + [y'(t)]^2} \ dt \\ &= 2\pi \int_{0}^{\frac{\pi}{5}} \sin(t)\sqrt{[-\sin(t)]^2 + [\cos(t)]^2} \ dt \\ &= 2\pi \int_{0}^{\frac{\pi}{5}} \sin(t) \ dt \\ &= 2\pi \left[-\cos(t)\bigg|_{0}^{\pi/5}\right] \\ &= 2\pi(1 - \cos(\pi/5)) = \frac{(3 - \sqrt{5})\pi}{2}
 \end{align*}
 
-[O fato de que $\cos(\pi/5) = \frac{1+\sqrt{5}}{4}$ pode ser obtido usando relações trigonométricas em um triângulo isosceles de ângulos $36^{\circ}, 72^{\circ}, 72^{\circ}$ e base 1]. Portanto, $$A = \frac{8\pi - 5(3 - \sqrt{5})\pi}{2} = \frac{(5\sqrt{5} - 7)\pi}{2}$$
+[O fato de que $\cos(\pi/5) = \frac{1+\sqrt{5}}{4}$ pode ser obtido usando relações trigonométricas em um triângulo isósceles de ângulos $36^{\circ}, 72^{\circ}, 72^{\circ}$ e base 1]. Portanto, $$A = \frac{8\pi - 5(3 - \sqrt{5})\pi}{2} = \frac{(5\sqrt{5} - 7)\pi}{2}.$$
 
 
 
@@ -401,11 +408,9 @@ Basta calcular
 
 \noindent Como $f$ é contínua, para \( x \) suficientemente pequeno, \( f(a + x) \) e \( f(a) \) têm o mesmo sinal, e daí segue que
 
-\begin{eqnarray*}
-\log \left[ \lim_{x \to 0} \left( \frac{f(a + x)}{f(a)} \right)^{1/x} \right]
-& = &  \lim_{x \to 0} \left[ \log \left( \frac{|f(a + x)|}{|f(a)|} \right)^{1/x} \right] \\
-& = & \lim_{x \to 0} \frac{\log |f(a + x)| - \log |f(a)|}{x}.
-\end{eqnarray*}
+$$\log \left[ \lim_{x \to 0} \left( \frac{f(a + x)}{f(a)} \right)^{1/x} \right]
+ =  \lim_{x \to 0} \left[ \log \left( \frac{|f(a + x)|}{|f(a)|} \right)^{1/x} \right]$$
+$$ =  \lim_{x \to 0} \frac{\log |f(a + x)| - \log |f(a)|}{x}.$$
 A última expressão à direita é a definição da derivada de \( \log |f(x)| \) em \( x = a \), que sabemos ser igual a \( f'(a)/f(a) \). Assim,
 
 \[
@@ -419,7 +424,7 @@ A última expressão à direita é a definição da derivada de \( \log |f(x)| \
 
 
 \begin{problem*}
-Sejam $A, B \in M(n, \mathbb{C})$ e $P \in \mathbb{C}[X]$ um polinômio năo-constante tal que $P(0) \neq 0$ e $A B=P(A)$. Prove que  a matriz $A$ é invertível e que as matrizes $A$ e $B$ comutam (isto é, que $AB=BA$).
+Sejam $A, B \in M(n, \mathbb{C})$ e $P \in \mathbb{C}[X]$ um polinômio não constante tal que $P(0) \neq 0$ e $A B=P(A)$. Prove que a matriz $A$ é invertível e que as matrizes $A$ e $B$ comutam (isto é, que $AB=BA$).
 \end{problem*}
 
 \noindent {\textbf{Solução:}} Podemos escrever \( P(X) \) da seguinte forma:
@@ -462,28 +467,28 @@ BA = A^{-1}P(A)A = A^{-1}AP(A) = I_nP(A) = P(A) = AB.
 
 \textbf{Desigualdade das Médias (MA-MG)}
 
-A demonstração utiliza a Desigualdade das Médias Aritmética e Geométrica (MA-MG). Para quaisquer números reais positivos $x$ e $y$, temos:
-$$\frac{x+y}{2} \ge \sqrt{xy} \implies x+y \ge 2\sqrt{xy}$$
+A demonstração utiliza a Desigualdade das Médias Aritmética e Geométrica (MA-MG). Para quaisquer números reais positivos $x$ e $y$, temos que
+$$\frac{x+y}{2} \ge \sqrt{xy} \implies x+y \ge 2\sqrt{xy}.$$
 
 Aplicando essa desigualdade individualmente para cada par formado por $1$ e $a_i$ (sabendo que $a_i > 0$), construímos o seguinte sistema de desigualdades:
 \begin{align*}
     1+a_1 &\ge 2\sqrt{a_1} \\
     1+a_2 &\ge 2\sqrt{a_2} \\
     &\ \ \vdots \\
-    1+a_n &\ge 2\sqrt{a_n}
+    1+a_n &\ge 2\sqrt{a_n}.
 \end{align*}
 
 Como todos os termos em ambos os lados das desigualdades são estritamente positivos, podemos multiplicar as $n$ desigualdades membro a membro sem alterar o sentido da relação:
-$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge (2\sqrt{a_1})(2\sqrt{a_2})\cdots(2\sqrt{a_n})$$
+$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge (2\sqrt{a_1})(2\sqrt{a_2})\cdots(2\sqrt{a_n}).$$
 
-Agrupando os $n$ fatores $2$ e unificando as raízes no lado direito, obtemos:
-$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n\sqrt{a_1\cdot a_2 \cdots a_n}$$
+Agrupando os $n$ fatores $2$ e unificando as raízes no lado direito, obtemos
+$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n\sqrt{a_1\cdot a_2 \cdots a_n}.$$
 
 Por hipótese, o produto de todos os termos $a_i$ é exatamente 1 ($a_1\cdot a_2 \cdots a_n = 1$). Substituindo esse valor, a expressão sob a raiz resulta em 1 (elemento neutro da multiplicação):
-$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n\sqrt{1}$$
+$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n\sqrt{1}.$$
 
 O que demonstra diretamente a tese:
-$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n$$
+$$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n.$$
 
 
 
@@ -507,15 +512,15 @@ Sabendo que a cada 100 naturais consecutivos existe sempre ao menos um elemento 
 Como as distâncias entre elementos consecutivos resultam em números inteiros, todas as distâncias possíveis pertencem ao intervalo $[1, 100]$. Portanto, o número máximo de distâncias distintas entre elementos consecutivos de $A$ é 100.
 
 Para aplicar o Princípio da Casa dos Pombos, analisamos os 202 primeiros elementos de $A$. Com eles, podemos formar exatamente 101 pares disjuntos de elementos consecutivos:
-$$(a_1, a_2), (a_3, a_4), \dots, (a_{201}, a_{202})$$
+$$(a_1, a_2), (a_3, a_4), \dots, (a_{201}, a_{202}).$$
 
 Temos 101 pares gerando 101 medidas de distância. Como existem no máximo 100 valores distintos possíveis para essas distâncias, o Princípio da Casa dos Pombos (Teorema de Dirichlet) garante que, inevitavelmente, ao menos 2 pares disjuntos possuirão exatamente a mesma distância.
 
 Sejam esses pares disjuntos $(c, a)$ e $(b, d)$, ambos pertencentes a $A$, tais que a distância do primeiro par seja igual à distância do segundo par:
-$$a - c = d - b$$
+$$a - c = d - b.$$
 
 Manipulando algebricamente a igualdade, obtemos diretamente:
-$$a + b = c + d$$
+$$a + b = c + d.$$
 
 Como os dois pares analisados são disjuntos e os elementos de $A$ podem ser dispostos em uma sequência estritamente crescente de naturais, os quatro números $a, b, c$ e $d$ são obrigatoriamente distintos, o que conclui a prova.
 
@@ -543,24 +548,27 @@ Para mostrar o resultado desejado, vamos analisar o problema de um ponto de vist
 
 \begin{itemize}
 
-\item Para $n=2$: a única opção de divisão é $2=1 + 1$, cujo produto é $S_2=1$;
+\item Para $n = 2$: a única opção de divisão é $2 = 1 + 1$, cujo produto é $S_2 = 1$;
 
-\item Para $n=3$: por simetria, podemos considerar a divisão inicial $3 = 2+1$, anotando no quadro o valor $2$. Após isso, veja que os próximos números a serem anotados no quadro são os que podem ser gerados começando com $2$ pedras. E nesse caso já sabemos o que ocorre. Assim, ao final teremos a soma $S_3 = 2 + 1 = 3$;
+\item Para $n = 3$: por simetria, podemos considerar a divisão inicial $3 = 2 + 1$, anotando no quadro o valor $2$. Após isso, veja que os próximos números a serem anotados no quadro são os que podem ser gerados começando com $2$ pedras. Nesse caso, já sabemos o que ocorre. Assim, ao final teremos a soma $S_3 = 2 + 1 = 3$;
 
-\item Para $n=4$: podemos começar com duas possíveis divisões iniciais $4 = 2+2$ ou $4=3+1$, anotando no quadro o valor $4$ ou $3$, respectivamente. Após isso, veja que os próximos números a serem anotados no quadro são os que podem ser gerados começando com $2$ pedras ou $3$ pedras. E nesse caso já sabemos o que ocorre. Assim, ao final teremos a soma $S_4 = 4 + 1 + 1 = 6$ (no primeiro caso) e $S_4 = 3 + 3 = 6$ (no segundo caso). Podemos ver que de fato, a soma final $S_n$ parece não depender das escolhas de divisões feitas;
+\item Para $n = 4$: podemos começar com duas possíveis divisões iniciais $4 = 2 + 2$ ou $4 = 3 + 1$, anotando no quadro o valor $4$ ou $3$, respectivamente. Após isso, veja que os próximos números a serem anotados no quadro são os que podem ser gerados começando com $2$ pedras ou $3$ pedras. Nesse caso, já sabemos o que ocorre. Assim, ao final teremos a soma $S_4 = 4 + 1 + 1 = 6$ (no primeiro caso) e $S_4 = 3 + 3 = 6$ (no segundo caso). Podemos ver que, de fato, a soma final $S_n$ parece não depender das escolhas de divisões feitas;
 
-\item Suponha que esse padrão de independência das escolhas de divisões não afete a soma final. Ao começar com $n$ pedras, façamos a divisão $n=(n-1)+1$, anotando o produto $n-1$. Sucedendo nesse padrão de divisão, sempre separando apenas 1 pedra em cada etapa, teremos anotado os produtos $n-1, \ n-2, \ldots, 2$ e $1$, cuja soma é $S_n = \frac{n(n-1)}{2}$.
+\item Suponha que esse padrão de independência das escolhas de divisões não afete a soma final. Ao começar com $n$ pedras, façamos a divisão $n = (n - 1) + 1$, anotando o produto $n - 1$. Sucedendo nesse padrão de divisão, sempre separando apenas 1 pedra em cada etapa, teremos anotado os produtos $n - 1, \ n - 2, \ldots, 2$ e $1$, cuja soma é $S_n = \frac{n(n-1)}{2}$.
 \end{itemize}
 
-Pronto, agora vamos provar em definitivo que de fato, isso independe das escolhas de divisões inicial e intermediárias. Provaremos, por indução, que $S_n = \frac{n(n-1)}{2}$ independe das escolhas de divisões. 
+Pronto, agora vamos provar em definitivo que, de fato, isso independe das escolhas de divisões iniciais e intermediárias. Provaremos, por indução, que $S_n = \frac{n(n-1)}{2}$ independe das escolhas de divisões. 
 
 \ 
 
-Para $n=2$, já temos o desejado. Agora, suponhamos que, isso vale para todo $k$ natural entre $2$ e $n-1$, isto é, que $S_k = \frac{k(k-1)}{2}$ independe das escolhas de divisões, $k=2, \ldots, n-1$. 
+Para $n = 2$, já temos o desejado. Agora, suponhamos que isso vale para todo $k$ natural entre $2$ e $n - 1$, isto é, que $S_k = \frac{k(k-1)}{2}$ independe das escolhas de divisões, $k = 2, \ldots, n - 1$. 
 
 \ 
 
-Agora, partindo de $n$ pedras, podemos fazer a divisão inicial $n = k + (n-k)$ com $k, n-k \leq n-1$.  Temos que, o produto inicial anotado no quadro é $k(n-k)$. Mas, por hipótese de indução, vale que $S_k = \frac{k(k-1)}{2}$ e $S_{n-k} = \frac{(n-k)(n-k-1)}{2}$ (aqui supondo que $S_1 = 0$). Assim, a soma dos produtos anotados no quadro é $$k(n-k) + \frac{k(k-1)}{2} + \frac{(n-k)(n-k-1)}{2} = \frac{2k(n-k) + k^2 + (n-k)^2 - k - (n-k)}{2}$$ $$= \frac{(k + (n-k))^2 - n}{2} = \frac{n^2 - n}{2} = \frac{n(n-1)}{2}$$ Portanto, $S_n = \frac{n(n-1)}{2}$, e o resultado vale para todo $n \geq 2$ ($n \geq 1$ se incluirmos $S_1 = 0$). Com isso, $S_{40} = \frac{40 \cdot 39}{2} = 780$, como queríamos demonstrar. 
+Agora, partindo de $n$ pedras, podemos fazer a divisão inicial $n = k + (n - k)$ com $k, n - k \leq n - 1$. Temos que o produto inicial anotado no quadro é $k(n - k)$. Mas, por hipótese de indução, vale que $S_k = \frac{k(k-1)}{2}$ e $S_{n-k} = \frac{(n-k)(n-k-1)}{2}$ (aqui supondo que $S_1 = 0$). Assim, a soma dos produtos anotados no quadro é 
+$$k(n - k) + \frac{k(k-1)}{2} + \frac{(n-k)(n-k-1)}{2} $$
+$$= \frac{2k(n-k) + k^2 + (n-k)^2 - k - (n-k)}{2}$$ 
+$$= \frac{(k + (n-k))^2 - n}{2} = \frac{n^2 - n}{2} = \frac{n(n-1)}{2}.$$ Portanto, $S_n = \frac{n(n-1)}{2}$, e o resultado vale para todo $n \geq 2$ ($n \geq 1$ se incluirmos $S_1 = 0$). Com isso, $S_{40} = \frac{40 \cdot 39}{2} = 780$, como queríamos demonstrar.
 
 
 
@@ -569,7 +577,7 @@ Agora, partindo de $n$ pedras, podemos fazer a divisão inicial $n = k + (n-k)$ 
 
 
 \begin{problem*}
-A sequência de números inteiros $x_n$ é definida por $x_1=4$, $x_2=6$ e, para $n \geq 3$, $x_n$ é o menor número composto maior que $2x_{n-1}-x_{n-2}$. Encontre o valor de $x_{2026}$.
+A sequência de números inteiros $x_n$ é definida por $x_1 = 4$, $x_2 = 6$ e, para $n \geq 3$, $x_n$ é o menor número composto maior que $2x_{n-1} - x_{n-2}$. Encontre o valor de $x_{2026}$.
 \end{problem*}
 
 \noindent \textbf{Solução:}
@@ -577,10 +585,10 @@ A sequência de números inteiros $x_n$ é definida por $x_1=4$, $x_2=6$ e, para
 \noindent Vamos calcular os primeiros termos da sequência:
 
 \begin{eqnarray*}
-2x_{2}-x_1 = 8 & \Rightarrow & x_3 = 9 \\
-2x_{3}-x_2 = 12 & \Rightarrow & x_4 = 14 \\
-2x_{4}-x_3 = 19 & \Rightarrow & x_5 = 20 \\
-2x_{5}-x_4 = 26 & \Rightarrow & x_6 = 27 \\
+2x_{2} - x_1 = 8 & \Rightarrow & x_3 = 9 \\
+2x_{3} - x_2 = 12 & \Rightarrow & x_4 = 14 \\
+2x_{4} - x_3 = 19 & \Rightarrow & x_5 = 20 \\
+2x_{5} - x_4 = 26 & \Rightarrow & x_6 = 27 .\\
 \end{eqnarray*}
 
 \noindent Note que 
@@ -588,22 +596,22 @@ A sequência de números inteiros $x_n$ é definida por $x_1=4$, $x_2=6$ e, para
 \begin{eqnarray*}
 x_4 - x_3 & = & 5 \\
 x_5 - x_4 & = & 6 \\
-x_6 - x_5 & = & 7 \\
+x_6 - x_5 & = & 7 .\\
 \end{eqnarray*}
 
 \noindent Isso nos permite conjecturar que 
 
-$$x_{n}-x_{n-1} = n+1.$$
+$$x_{n} - x_{n-1} = n + 1.$$
 
 \noindent Realizando a soma telescópica da identidade anterior para $n \in \{4,5, \ldots, k\}$, obtemos 
 \begin{eqnarray*}
-x_i & = & x_3+ 5+6+\ldots+(i+1) \\
+x_i & = & x_3 + 5 + 6 + \ldots + (i+1) \\
 	& = & \dfrac{i(i+3)}{2}. 
 \end{eqnarray*}
 
 Provemos a afirmação anterior por indução. Suponha que ela vale para todos os inteiros $i \in \{3,4, \ldots, k\}$. Para provar que também vale para $k+1$, note que 
 
-$$2x_k-x_{k-1} = 2 \cdot \dfrac{k(k+3)}{2} -\dfrac{(k-1)(k+2)}{2} = \dfrac{(k+1)(k+4)}{2}-1.$$
+$$2x_k - x_{k-1} = 2 \cdot \dfrac{k(k+3)}{2} - \dfrac{(k-1)(k+2)}{2} = \dfrac{(k+1)(k+4)}{2} - 1.$$
 Se $k \geq 3$, a depender da paridade de $k$, podemos escrever $\dfrac{(k+1)(k+4)}{2} = \dfrac{k+1}{2} \cdot (k+4)$ ou $\dfrac{k+4}{2} \cdot (k+1)$, garantindo assim que 
 $$x_{k+1} = \dfrac{(k+1)(k+4)}{2}.$$
 Portanto, $x_{2026} = \dfrac{2026 \cdot 2029}{2}.$
@@ -614,7 +622,7 @@ Em uma festa, existem $25$ membros que satisfazem a seguinte condição: quando 
 
 \noindent \textbf{Solução:}
 
-Primeiramente observe que se uma pessoa da festa conhecer apenas uma outra, então essa última será obrigada a conhecer todos os demais da festa. Portanto, todos na festa conhecem pelo menos duas pessoas. Suponha, por absurdo, que a soma dos números de amigos de cada um é menor que $72$. Como ela deve ser um número par, ela é no máximo $70$. Dado que $70/3 <25$, pelo Princípio da Casa dos Pombos, há uma pessoa, digamos $A$, que conhece exatamente duas outras pessoas, digamos $B$ e $C$. As outras $22$ pessoas que não conhecem $A$ obrigatoriamente devem conhecer $B$ ou $C$. Assim, a soma dos números de amigos de $A$, $B$ e $C$ é pelo menos $2+1+1+22 = 26$. Cada uma das outras $22$ pessoas conhece pelo menos duas outras e assim a soma dos números de amigos de todos é pelo menos $22\cdot 2 + 26 =70$. Para que ocorra essa igualdade, $B$ e $C$ não devem se conhecer e cada um dos demais membros deve conhecer exatamente um dos dois. Isso nos permite classificar os $22$ membros que não estão em $\{A,B,C\}$ em dois grupos: o grupo $G_B$ (dos que conhecem $B$) e o grupo $G_C$(dos que conhecem $C$). Pelo Princípio da Casa dos Pombos, pelo menos um desses grupos, digamos $G_B$, possui $11$ membros. Se $C$ conhecer qualquer um deles, a soma anterior irá ultrapassar $70$. Para que isso não ocorra, $C$ deve possui um amigo e comum com cada um dos membros de $G_B$, que necessariamente devem ser distintos, porque cada um deles conhece apenas $2$ pessoas Consequentemente, $G_C$ possui pelo menos $11$ membros. Isso é um absurdo porque uma pessoa de $G_B$ que não conheça uma de $G_C$ não poderá ter um amigo em comum com ela. 
+Primeiramente observe que se uma pessoa da festa conhecer apenas uma outra, então essa última será obrigada a conhecer todos os demais da festa. Portanto, todos na festa conhecem pelo menos duas pessoas. Suponha, por absurdo, que a soma dos números de amigos de cada um é menor que $72$. Como ela deve ser um número par, ela é no máximo $70$. Dado que $70/3 < 25$, pelo Princípio da Casa dos Pombos, há uma pessoa, digamos $A$, que conhece exatamente duas outras pessoas, digamos $B$ e $C$. As outras $22$ pessoas que não conhecem $A$ obrigatoriamente devem conhecer $B$ ou $C$. Assim, a soma dos números de amigos de $A$, $B$ e $C$ é pelo menos $2+1+1+22 = 26$. Cada uma das outras $22$ pessoas conhece pelo menos duas outras, e assim a soma dos números de amigos de todos é pelo menos $22\cdot 2 + 26 = 70$. Para que ocorra essa igualdade, $B$ e $C$ não devem se conhecer, e cada um dos demais membros deve conhecer exatamente um dos dois. Isso nos permite classificar os $22$ membros que não estão em $\{A,B,C\}$ em dois grupos: o grupo $G_B$ (dos que conhecem $B$) e o grupo $G_C$ (dos que conhecem $C$). Pelo Princípio da Casa dos Pombos, pelo menos um desses grupos, digamos $G_B$, possui $11$ membros. Se $C$ conhecer qualquer um deles, a soma anterior irá ultrapassar $70$. Para que isso não ocorra, $C$ deve possuir um amigo em comum com cada um dos membros de $G_B$, que necessariamente devem ser distintos, porque cada um deles conhece apenas $2$ pessoas. Consequentemente, $G_C$ possui pelo menos $11$ membros. Isso é um absurdo, porque uma pessoa de $G_B$ que não conheça uma de $G_C$ não poderá ter um amigo em comum com ela.
 
 \begin{problem*}
 Seja $ABCD$ um quadrilátero inscritível e $P=BD \cap AC$. Os pés das perpendiculares de $P$ aos lados $AB$ e $CD$ são $X$ e $Y$. Se $M$ e $N$ são os pontos médios dos lados $BC$ e $AD$, prove que $MN \perp XY$.    
@@ -724,26 +732,26 @@ Pelo enunciado, tem-se o seguinte esboço:
 
 \vspace*{0.5cm}
 
-Como ABCD é inscritível, tem-se que $\angle BDC = \angle CAB = \alpha$, $\angle DBA = \angle DCA = \beta$, $\angle ADB = \angle ACB = \gamma$ e $\angle DAC = \angle DBC = \lambda$. Ademais, tem-se que PX e PY são alturas dos triângulos ABP e CDP, respectivamente. 
+Como $ABCD$ é inscritível, tem-se que $\angle BDC = \angle CAB = \alpha$, $\angle DBA = \angle DCA = \beta$, $\angle ADB = \angle ACB = \gamma$ e $\angle DAC = \angle DBC = \lambda$. Ademais, tem-se que $PX$ e $PY$ são alturas dos triângulos $ABP$ e $CDP$, respectivamente. 
 
 \vspace*{0.2cm}
 
-Portanto, tem-se que os triângulos CDP e ABP são semelhantes e, daí, tem-se que:
+Portanto, tem-se que os triângulos $CDP$ e $ABP$ são semelhantes e, daí, tem-se que:
 
 \vspace*{0.2cm}
 
 \begin{center}
-$\dfrac{AB}{CD}=\dfrac{XP}{YP}$
+$\dfrac{AB}{CD}=\dfrac{XP}{YP}$.
 \end{center}
 
 \vspace{0.2cm}
 
-Seja E o ponto médio de AC (esboço abaixo). Como M e N são pontos médios de AD e BC respectivamente, temos que EM é base média de ABC e, portanto:
+Seja $E$ o ponto médio de $AC$ (esboço abaixo). Como $M$ e $N$ são pontos médios de $AD$ e $BC$ respectivamente, temos que $EM$ é base média de $ABC$ e, portanto
 
 \vspace*{0.2cm}
 
 \begin{center}
-$\dfrac{AB}{CD}=\dfrac{EM}{EN}=\dfrac{XP}{YP}$ (1)
+$\dfrac{AB}{CD}=\dfrac{EM}{EN}=\dfrac{XP}{YP}$ (1). 
 \end{center}
 
 
@@ -855,7 +863,7 @@ Ademais, $EM \parallel AB$ e $EN \parallel CD$.
 
 \vspace{0.2cm}
 
-Pela conclusão anterior, sem perda de generalidade, pode-se inferir que PX é perpendicular à reta suporte de EM, chamemos ela de r. Analogamente, PY é perpendicular à reta suporte de EN, chamemos ela de s.
+Pela conclusão anterior, sem perda de generalidade, pode-se inferir que $PX$ é perpendicular à reta suporte de $EM$, chamemo-la de $r$. Analogamente, $PY$ é perpendicular à reta suporte de $EN$, chamemo-la de $s$.
 
 \vspace{0.2cm}
 
@@ -971,18 +979,18 @@ Analisando os ângulos $\angle NEM$ e $\angle YPX$, tem-se que ambos são congru
 
 \vspace{0.3cm}
 
-Analisando o quadrilátero FYPX formado, tem-se na soma dos ângulos internos que:
+Analisando o quadrilátero $FYPX$ formado, tem-se, na soma dos ângulos internos, que:
 
 \vspace{0.2cm}
 
 \begin{center}
-$\angle XFY + 90° + 90° + \angle YPX=360°$
+$\angle XFY + 90^o + 90^o + \angle YPX = 360^o$
 \end{center}
 
 \vspace{0.2cm}
 
 \begin{center}
-$\Leftrightarrow \angle YPX=180°- \angle XFY$
+$\Leftrightarrow \angle YPX = 180^o - \angle XFY$
 \end{center}
 
 \vspace{0.05cm}
@@ -993,11 +1001,11 @@ $\Leftrightarrow \angle YPX = \angle NEM$ (2)
 
 \vspace{0.2cm}
 
-Logo, pelas equações (1) e (2), tem-se que NEM e XYP são triângulos semelhantes devido ao caso LAL de semelhança.
+Logo, pelas equações (1) e (2), tem-se que $NEM$ e $XYP$ são triângulos semelhantes devido ao caso LAL de semelhança.
 
 \vspace{0.2cm}
 
-Como visto anteriormente, $PX \perp r \supset EM$ e $PY \perp s \supset EN$, então obrigatoriamente, $MN \perp XY$. Isso é comprovado pelo fato de que como a relação de semelhança consiste em realizar no máximo rotações e translações, tem-se que ao realizar algum desses movimentos de tal forma que dois pares de lados homólogos sejam perpendiculares entre si, então o terceiro par também será perpendicular.
+Como visto anteriormente, $PX \perp r \supset EM$ e $PY \perp s \supset EN$; então, obrigatoriamente, $MN \perp XY$. Isso é comprovado pelo fato de que a relação de semelhança consiste em realizar, no máximo, rotações e translações. Assim, ao realizar algum desses movimentos de tal forma que dois pares de lados homólogos sejam perpendiculares entre si, então o terceiro par também será perpendicular.
 
 \vspace{1cm}
 
@@ -1012,11 +1020,11 @@ Como visto anteriormente, $PX \perp r \supset EM$ e $PY \perp s \supset EN$, ent
 
 
 \begin{problem*}
-   Uma máquina tem dois botões: um deles dobra um número inteiro e o outro aumenta ele em $1$ unidade. Por exemplo, apertando os botões dessa máquina é possível realizar as seguintes operações:
+    Uma máquina tem dois botões: um deles dobra um número inteiro e o outro o aumenta em $1$ unidade. Por exemplo, apertando os botões dessa máquina é possível realizar as seguintes operações:
 
 $$1 \rightarrow_{+1} 2 \rightarrow_{\times 2} 4 \rightarrow_{+1} 5.$$
 
-\noindent Se no início você começa com o número $0$, qual o número mínimo de vezes que você precisa apertar botões dessa máquina para obter:
+\noindent Se no início você começa com o número $0$, qual é o número mínimo de vezes que você precisa apertar botões dessa máquina para obter:
 \begin{enumerate}[a)]
 \item $100$?
 \item $2024$?
@@ -1025,16 +1033,16 @@ $$1 \rightarrow_{+1} 2 \rightarrow_{\times 2} 4 \rightarrow_{+1} 5.$$
 
 \noindent \textbf{Solução:}
 
-\noindent Podemos considerar o problema reverso de transformar o número inteiro $n$ em $0$ por meio de duas operações: dividir por $2$ ou subtrair $1$. Seja $r(n)$ o número mínimo de movimentos para transformar $n$ em $0$ com essas duas operações. Claramente $r(2n+1)=r(2n)+1$, pois não podemos dividir por $2$. Vamos provar por indução que $r(2k)=1+r(k)$. Para $k=1$ é imediato. Suponha que já provamos para todos os números pares menores que $2k$. Se aplicarmos a operação de subtrair $1$ de $2k$, o número mínimo de operações para obter $0$ não será menor que $1+r(2k-1)=2+r(2k-2)=3+r(k-1)$. Por outro lado, se aplicarmos a operação de dividir por $2$ primeiro, o número de operações será $1+r(k) \leq 2+r(k-1)$. Ou seja, começar dividindo por $2$ é mais vantajoso. Em geral, se $n = 2^{r_1}+2^{r_1+r_2}+\ldots+2^{k_1+k_2+\ldots+k_m}$, segue que 
+\noindent Podemos considerar o problema reverso de transformar o número inteiro $n$ em $0$ por meio de duas operações: dividir por $2$ ou subtrair $1$. Seja $r(n)$ o número mínimo de movimentos para transformar $n$ em $0$ com essas duas operações. Claramente, $r(2n+1) = r(2n) + 1$, pois não podemos dividir por $2$. Vamos provar por indução que $r(2k) = 1 + r(k)$. Para $k = 1$ é imediato. Suponha que já provamos para todos os números pares menores que $2k$. Se aplicarmos a operação de subtrair $1$ de $2k$, o número mínimo de operações para obter $0$ não será menor que $1 + r(2k-1) = 2 + r(2k-2) = 3 + r(k-1)$. Por outro lado, se aplicarmos a operação de dividir por $2$ primeiro, o número de operações será $1 + r(k) \leq 2 + r(k-1)$. Ou seja, começar dividindo por $2$ é mais vantajoso. Em geral, se $n = 2^{r_1} + 2^{r_1+r_2} + \ldots + 2^{k_1+k_2+\ldots+k_m}$, segue que 
 \begin{eqnarray*}
 r(n) & = & k_1 + r(n/2^{k_1}) \\
      & \ldots  & \\
-     & = & (k_1+k_2+\ldots k_m)+m 
+    & = & (k_1 + k_2 + \ldots + k_m) + m.
 \end{eqnarray*}
 
 \begin{enumerate}[a)]
-\item Como $100=2^6+2^5+2^2$, segue que $r(100)=6+3=9$.
-\item Como $2024 = 2^{10} + 2^9 + 2^8 + 2^7+2^6+2^5+2^3$, segue que $r(2024)=17$.
+\item Como $100 = 2^6 + 2^5 + 2^2$, segue que $r(100) = 6 + 3 = 9$.
+\item Como $2024 = 2^{10} + 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^3$, segue que $r(2024) = 17$.
 \end{enumerate}
 
 
@@ -1081,12 +1089,12 @@ Para cada função contínua $f: [0,1] \rightarrow \mathbb{R}$, seja $I(f) = \in
 \section*{Problemas de Matemática Elementar}
 
 \begin{problem*}
-Qual o primeiro algarismo após a vírgula da representação decimal de $\sqrt{9 \cdot 100^2+4 \cdot 100}$?
+Qual é o primeiro algarismo após a vírgula da representação decimal de $\sqrt{9 \cdot 100^2 + 4 \cdot 100}$?
 \end{problem*}
 
 
 \begin{problem*}
-A função $f: \mathbb{N} \rightarrow \mathbb{R}$ satisfaz, $f(1)=2027$ e, para $n>1$, $$f(1)+f(2)+\ldots +f(n) = n^2 \cdot f(n)$$ Qual o valor de $f(2027)$?
+A função $f: \mathbb{N} \rightarrow \mathbb{R}$ satisfaz $f(1) = 2027$ e, para $n > 1$, $$f(1) + f(2) + \ldots + f(n) = n^2 \cdot f(n).$$ Qual é o valor de $f(2027)$?
 
 \end{problem*}
 
@@ -1098,9 +1106,9 @@ Em cada jogada, Elaís pode substituir `EL' em qualquer lugar da palavra por `LE
 $$LEELE{\bf EL}LE \rightarrow LEELEL{\bf EL}E \rightarrow LEELELLEE$$
 \noindent Se não houver `L' imediatamente à direita de um `E', Elaís não pode fazer uma jogada.
 \begin{enumerate}
-\item[a)] Qual o número máximo de jogadas que Elaís pode fazer na palavra $LEELEELLE$?
+\item[a)] Qual é o número máximo de jogadas que Elaís pode fazer na palavra $LEELEELLE$?
 
-\item[b)] Dentre todas as palavras de $20$ letras, qual o valor máximo possível de jogadas que ela pode fazer?
+\item[b)] Dentre todas as palavras de $20$ letras, qual é o valor máximo possível de jogadas que ela pode fazer?
 \end{enumerate}
 \end{problem*}
 
@@ -1111,8 +1119,8 @@ Estão escritas no quadro \( n \) unidades consecutivas. Entre algumas delas, co
 \]
 
 \begin{enumerate}
-    \item[a)] Se \( n = 53 \), é possível obter a soma 116 ?  
-    \item[b)] Se \( n = 53 \), é possível obter a soma 117 ?  
+    \item[a)] Se \( n = 53 \), é possível obter a soma 116?  
+    \item[b)] Se \( n = 53 \), é possível obter a soma 117?  
     \item[c)] Qual é a maior soma de quatro algarismos que se pode obter se \( n = 53 \)?
     %Resposta 9665
 \end{enumerate}
@@ -1124,7 +1132,7 @@ Estão escritas no quadro \( n \) unidades consecutivas. Entre algumas delas, co
 \end{problem*}
 
 
-\begin{problem*} Suponha que $x$ e $y$ são maiores que $0$. Vamos denotar o mínimo de $x, \frac{1}{y}$ e $y + \frac{1}{x}$ por $S$, isto é, $S = \min\{ x, \frac{1}{y}, y + \frac{1}{x}\}$. Qual o valor máximo possível para $S$ ?
+\begin{problem*} Suponha que $x$ e $y$ são maiores que $0$. Vamos denotar o mínimo de $x, \frac{1}{y}$ e $y + \frac{1}{x}$ por $S$, isto é, $S = \min\{ x, \frac{1}{y}, y + \frac{1}{x}\}$. Qual é o valor máximo possível para $S$?
 \end{problem*}
 
 
