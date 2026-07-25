@@ -176,10 +176,10 @@
  \end{tikzpicture}\end{center}
 }
 \newcommand{\epistolapage}{1}
-\newcommand{\historiapage}{3}
-\newcommand{\memoriapage}{25}
-\newcommand{\panoramapage}{35}
-\newcommand{\tecnicapage}{41}
-\newcommand{\problemapage}{48}
+\newcommand{\historiapage}{2}
+\newcommand{\memoriapage}{24}
+\newcommand{\panoramapage}{33}
+\newcommand{\tecnicapage}{39}
+\newcommand{\problemapage}{45}
 \bibliographystyle{plain}
 \addto{\captionsbrazil}{\renewcommand{\refname}{Bibliografia}}
