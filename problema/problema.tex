@@ -319,42 +319,41 @@ Isso conclui a demonstração formal da hipótese.
 
 \vspace{1cm}
 
-\noindent \textbf{Solução} (solução oficial).
+\noindent \textbf{Solução} (Solução de Vinícius Mello).
 
-Chamemos de $A_n$ a matriz de ordem $n$ definida como no enunciado. Vejamos as primeiras 4 matrizes, $$A_1 = \begin{bmatrix}
-2
-\end{bmatrix}, \ A_2 = \begin{bmatrix}
-2 & -1 \\
--1 & 2
-\end{bmatrix}, \ A_3 = \begin{bmatrix}
-2 & -1 & 1 \\
--1 & 2 & -1 \\ 
-1 & -1 & 2
-\end{bmatrix} $$ 
-$$ \mbox{ e }A_4 = \begin{bmatrix}
-2 & -1 & 1 & -1\\
--1 & 2 & -1 & 1 \\ 
+A matriz $A$ é uma matriz pode ser 
+escrita como $$A=I+u_n u_n^T,$$ onde
+$I$ é a matriz identidade de ordem $n$ e \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $u_n^T=[1 \ \  -1 \ \ 1 \ \  -1 \ldots (-1)^{n-1}]$,
+ou seja, $u_n$ é uma matriz coluna 
+cujas entradas alternam entre $1$ e $-1$.
+Por exemplo, para $n=4$ temos
+\begin{align*}
+    A & =  \begin{pmatrix}
+2 & -1 & 1 & -1 \\
+-1 & 2 & -1 & 1 \\
 1 & -1 & 2 & -1 \\
 -1 & 1 & -1 & 2
-\end{bmatrix}.$$
-
-Para calcular o determinante de $A_n$ notemos que, ao realizar operações elementares sobre as linhas do tipo $L_i \leftarrow L_i + L_j$, $i \neq j$, mantemos o determinante da matriz. Agora, fazendo a sequência de operações dadas a seguir a partir de $A_n$, $$L_1 \leftarrow L_1 + L_2$$ $$L_2 \leftarrow L_2 + L_3$$ $$\vdots$$ $$L_{n-1} \leftarrow L_{n-1} + L_n$$ obtemos a matriz 
-{\footnotesize $$\overline{A}_n = \begin{bmatrix}
-1 & 1 & 0 & 0 & \cdots & 0 & 0 & 0\\
-0 & 1 & 1 & 0 & \cdots & 0 & 0 & 0 \\
-\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
-0 & 0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
-(-1)^{n-1} & (-1)^{n-2} & (-1)^{n-3} & (-1)^{n-4} & \cdots & 1 & -1 & 2
-\end{bmatrix}$$} que possui o mesmo determinante de $A_n$. Agora, calculamos o determinante de $\overline{A}_n$ pelo Teorema de Laplace, usando a última linha. 
-
-Veja que, as submatrizes de $\overline{A}_n$ obtidas ao eliminarmos a linha $n$ e coluna $k$, são matrizes triangulares com a diagonal principal com todas as entradas iguais a 1, e isso implica que os determinantes dessas submatrizes são todos iguais a 1. Portanto, 
-\begin{align*}
-    \det A_n &= \det \overline{A}_n \\ &= (-1)^{n-1} \cdot (-1)^{n+1} \cdot 1 + (-1)^{n-2} \cdot (-1)^{n+2} \cdot 1 + \cdots\\
-      & + 1 \cdot (-1)^{n+n-2} \cdot 1 + (-1) \cdot (-1)^{n+n-1} \cdot 1 + 2 \cdot (-1)^{n+n} \cdot 1 \\
-       &= 1 + 1 + \cdots + 1 + 1 + 2 = (n-1) + 2 = n+1
+\end{pmatrix} \\ & =  \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} + \begin{pmatrix}
+1 \\ -1 \\ 1 \\ -1
+\end{pmatrix} \begin{pmatrix}1 & -1 & 1 & -1
+\end{pmatrix}.
 \end{align*}
-
-Assim, $\det A_n = n+1$. 
+Portanto, pela conhecida identidade 
+$$\det(I+uv^T) = 1 + v^Tu,$$
+aplicando-a com $u=u_n$ e $v=u_n$, temos
+$$\det(A) = \det(I+u_n u_n^T) = 1 + u_n^T u_n = 1 + n.$$
+Se a identidade $\det(I+uv^T) = 1 + v^Tu$ não for tão conhecida
+assim, podemos demonstrá-la rapidamente com a seguinte ideia: 
+se $u=0$, não há nada a demostrar. Caso contrário, é fácil ver
+que $u$ é um autovetor de $I+uv^T$ com autovalor $1+v^Tu$, pois
+$$(I+uv^T)u = u + u(v^Tu) = (1+v^Tu)u.$$
+Além disso, se $x$ é um vetor tal que $v^Tx=0$, então $(I+uv^T)x = x$, ou seja, $x$ é um autovetor de $I+uv^T$ com autovalor $1$. Como o espaço vetorial $\mathbb{R}^n$ tem dimensão $n$, podemos escolher $n-1$ vetores linearmente independentes $x_1, \ldots, x_{n-1}$ tais que $v^Tx_i=0$ para todo $i$. Assim, os autovalores de $I+uv^T$ são $1+v^Tu$ e $1$ (com multiplicidade $n-1$). Portanto, como o determinante de uma matriz é o produto de seus autovalores, temos
+$$\det(I+uv^T) = (1+v^Tu) \cdot 1^{n-1} = 1 + v^Tu.$$
 
 
 
@@ -373,7 +372,8 @@ Considere a projeção no plano $xy$ dada pela região poligonal limitada pelo p
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.35\linewidth]{hipatia pentagono1.png}
+    \includegraphics[width=0.65
+    \linewidth]{hipatia pentagono1.png}
     \caption{Projeção no plano $xy$.}
 \end{figure}
 
@@ -500,7 +500,7 @@ $$(1+a_1)(1+a_2)\cdots(1+a_n) \ge 2^n.$$
 
 \textbf{1\superou  Passo: A infinitude do conjunto $A$}
 
-Dado que entre 100 naturais consecutivos existe, ao menos, um elemento de $A$, podemos concluir que o número de elementos de $A$ equivale, no mínimo, à quantidade de partições de 100 elementos do conjunto dos naturais, que por sua vez é infinito. Logo, podemos afirmar que o conjunto $A$ possui infinitos termos.
+Dado que entre 100 naturais consecutivos existe, ao menos, um elemento de $A$, podemos concluir que o número de elementos de $A$ equivale, no mínimo, à quantidade de partições de 100 elementos do conjunto dos naturais, que por sua vez é infinito. Logo, podemos afirmar que o conjunto $A$ possui infinitos termos, e podemos escrever $A = \{ a_1, a_2, a_3, \ldots \}$, com $a_i < a_{i+1}$.
 
 \vspace{0.5cm}
 \textbf{2\superou  Passo: O Princípio da Casa dos Pombos}
@@ -605,8 +605,10 @@ $$x_{n} - x_{n-1} = n + 1.$$
 
 \noindent Realizando a soma telescópica da identidade anterior para $n \in \{4,5, \ldots, k\}$, obtemos 
 \begin{eqnarray*}
-x_i & = & x_3 + 5 + 6 + \ldots + (i+1) \\
-	& = & \dfrac{i(i+3)}{2}. 
+x_i & = & x_3+ 5+6+\ldots+(i+1) \\
+    & = & 9 + [1 + 2 + 3 + 4 + \cdots + i + (i+1)] - (1 + 2 + 3 + 4)\\
+    & = & \dfrac{(i+1)(i+2)}{2} - 1 \\
+	& = & \dfrac{i^2 + 3i}{2} = \dfrac{i(i+3)}{2}. 
 \end{eqnarray*}
 
 Provemos a afirmação anterior por indução. Suponha que ela vale para todos os inteiros $i \in \{3,4, \ldots, k\}$. Para provar que também vale para $k+1$, note que 
@@ -624,9 +626,81 @@ Em uma festa, existem $25$ membros que satisfazem a seguinte condição: quando 
 
 Primeiramente observe que se uma pessoa da festa conhecer apenas uma outra, então essa última será obrigada a conhecer todos os demais da festa. Portanto, todos na festa conhecem pelo menos duas pessoas. Suponha, por absurdo, que a soma dos números de amigos de cada um é menor que $72$. Como ela deve ser um número par, ela é no máximo $70$. Dado que $70/3 < 25$, pelo Princípio da Casa dos Pombos, há uma pessoa, digamos $A$, que conhece exatamente duas outras pessoas, digamos $B$ e $C$. As outras $22$ pessoas que não conhecem $A$ obrigatoriamente devem conhecer $B$ ou $C$. Assim, a soma dos números de amigos de $A$, $B$ e $C$ é pelo menos $2+1+1+22 = 26$. Cada uma das outras $22$ pessoas conhece pelo menos duas outras, e assim a soma dos números de amigos de todos é pelo menos $22\cdot 2 + 26 = 70$. Para que ocorra essa igualdade, $B$ e $C$ não devem se conhecer, e cada um dos demais membros deve conhecer exatamente um dos dois. Isso nos permite classificar os $22$ membros que não estão em $\{A,B,C\}$ em dois grupos: o grupo $G_B$ (dos que conhecem $B$) e o grupo $G_C$ (dos que conhecem $C$). Pelo Princípio da Casa dos Pombos, pelo menos um desses grupos, digamos $G_B$, possui $11$ membros. Se $C$ conhecer qualquer um deles, a soma anterior irá ultrapassar $70$. Para que isso não ocorra, $C$ deve possuir um amigo em comum com cada um dos membros de $G_B$, que necessariamente devem ser distintos, porque cada um deles conhece apenas $2$ pessoas. Consequentemente, $G_C$ possui pelo menos $11$ membros. Isso é um absurdo, porque uma pessoa de $G_B$ que não conheça uma de $G_C$ não poderá ter um amigo em comum com ela.
 
+\vspace{0.5cm}
 \begin{problem*}
 Seja $ABCD$ um quadrilátero inscritível e $P=BD \cap AC$. Os pés das perpendiculares de $P$ aos lados $AB$ e $CD$ são $X$ e $Y$. Se $M$ e $N$ são os pontos médios dos lados $BC$ e $AD$, prove que $MN \perp XY$.    
 \end{problem*}
+\begin{center}
+\begin{tikzpicture}[scale=1.2, thick]
+    % Centro e Círculo
+    \coordinate (O) at (0,0);
+    \draw (O) circle (2);
+    \fill (O) circle (1.5pt) node[below left] {$O$};
+
+    % Vértices do quadrilátero cíclico
+    \coordinate (A) at (147:2);
+    \coordinate (B) at (80:2);
+    \coordinate (C) at (-20:2);
+    \coordinate (D) at (-160:2);
+
+    % Desenhando o quadrilátero
+    \draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+    % Diagonais AC e BD
+    \draw[name path=AC] (A) -- (C);
+    \draw[name path=BD] (B) -- (D);
+
+    % Ponto de interseção P
+    \path [name intersections={of=AC and BD, by=P}];
+    \fill (P) circle (1.5pt) node[xshift=11pt, yshift=3pt] {$P$};
+
+
+    % Pontos M, N, X, Y (posições relativas baseadas na imagem)
+    %\coordinate (X) at ($(A)!0.3!(B)$);
+    %\coordinate (Y) at ($(D)!0.4!(C)$);
+    \coordinate (X) at ($(A)!(P)!(B)$);
+    \coordinate (Y) at ($(C)!(P)!(D)$);
+    \coordinate (M) at ($(A)!0.5!(D)$);
+    \coordinate (N) at ($(B)!0.5!(C)$);
+    
+
+    \draw[name path=XP] (X) -- (P);
+    \draw[name path=YP] (Y) -- (P);
+
+    
+
+
+    % Marcações de ângulo reto em X e Y
+    \pic [draw=black, fill=blue!15, thick, angle radius=1.5mm] {right angle = P--X--A};
+    %\coordinate (dotX) at ($(X)!0.8mm!(P) + ($(X)!0.8mm!(B) - (X)$)$);
+   % \fill[gray] (dotX) circle (0.4pt);
+
+    \pic [draw=black, fill=blue!15, thick, angle radius=1.5mm] {right angle = P--Y--C};
+    %\coordinate (dotY) at ($(Y)!0.8mm!(P) + ($(Y)!0.8mm!(D) - (Y)$)$);
+    %\fill[gray] (dotY) circle (0.4pt);
+
+    % Segmento MN tracejado
+    \draw[dashed, thick, name path=MN] (M) -- (N);
+
+    % Segmento XY tracejado 
+    \draw[dashed, thick, name path=XY] (X) -- (Y);
+
+    % Pontos marcados
+    \fill (X) circle (1.5pt) node[xshift=2pt, yshift=6pt]  {$X$};
+    \fill (Y) circle (1.5pt) node[below=2pt] {$Y$};
+    \fill (M) circle (1.5pt) node[above right=1pt] {$M$};
+    \fill (N) circle (1.5pt) node[above right=1pt] {$N$};
+
+    \fill (A) circle (1.5pt) node[above left] {$A$};
+    \fill (B) circle (1.5pt) node[above right] {$B$};
+    \fill (C) circle (1.5pt) node[below right] {$C$};
+    \fill (D) circle (1.5pt) node[below left] {$D$};
+
+    \path [name intersections={of=MN and XY, by=H}];
+    \fill (H) circle (1.5pt);
+
+\end{tikzpicture}
+\end{center}
 
 
 
@@ -746,7 +820,7 @@ $\dfrac{AB}{CD}=\dfrac{XP}{YP}$.
 
 \vspace{0.2cm}
 
-Seja $E$ o ponto médio de $AC$ (esboço abaixo). Como $M$ e $N$ são pontos médios de $AD$ e $BC$ respectivamente, temos que $EM$ é base média de $ABC$ e, portanto
+Seja $E$ o ponto médio de $AC$ (esboço abaixo). Como $M$ e $N$ são pontos médios de $AD$ e $BC$ respectivamente, temos que $EM$ e $EN$ são bases médias de $ABC$ e $CDA$, respectivamente, e, portanto
 
 \vspace*{0.2cm}
 
@@ -1009,7 +1083,7 @@ Como visto anteriormente, $PX \perp r \supset EM$ e $PY \perp s \supset EN$; ent
 
 \vspace{1cm}
 
-\noindent \textbf{Solução} (solução oficial).
+\noindent \textbf{Segunda solução:}
 
 \begin{figure}[htb!]
 	\centering
@@ -1033,7 +1107,7 @@ $$1 \rightarrow_{+1} 2 \rightarrow_{\times 2} 4 \rightarrow_{+1} 5.$$
 
 \noindent \textbf{Solução:}
 
-\noindent Podemos considerar o problema reverso de transformar o número inteiro $n$ em $0$ por meio de duas operações: dividir por $2$ ou subtrair $1$. Seja $r(n)$ o número mínimo de movimentos para transformar $n$ em $0$ com essas duas operações. Claramente, $r(2n+1) = r(2n) + 1$, pois não podemos dividir por $2$. Vamos provar por indução que $r(2k) = 1 + r(k)$. Para $k = 1$ é imediato. Suponha que já provamos para todos os números pares menores que $2k$. Se aplicarmos a operação de subtrair $1$ de $2k$, o número mínimo de operações para obter $0$ não será menor que $1 + r(2k-1) = 2 + r(2k-2) = 3 + r(k-1)$. Por outro lado, se aplicarmos a operação de dividir por $2$ primeiro, o número de operações será $1 + r(k) \leq 2 + r(k-1)$. Ou seja, começar dividindo por $2$ é mais vantajoso. Em geral, se $n = 2^{r_1} + 2^{r_1+r_2} + \ldots + 2^{k_1+k_2+\ldots+k_m}$, segue que 
+\noindent Podemos considerar o problema reverso de transformar o número inteiro $n$ em $0$ por meio de duas operações: dividir por $2$ ou subtrair $1$. Seja $r(n)$ o número mínimo de movimentos para transformar $n$ em $0$ com essas duas operações. Claramente, $r(2n+1) = r(2n) + 1$, pois não podemos dividir por $2$. Vamos provar por indução que $r(2k) = 1 + r(k)$. Para $k = 1$ é imediato. Suponha que já provamos para todos os números pares menores que $2k$. Se aplicarmos a operação de subtrair $1$ de $2k$, o número mínimo de operações para obter $0$ não será menor que $1 + r(2k-1) = 2 + r(2k-2) = 3 + r(k-1)$. Por outro lado, se aplicarmos a operação de dividir por $2$ primeiro, o número de operações será $1 + r(k) \leq 2 + r(k-1)$. Ou seja, começar dividindo por $2$ é mais vantajoso. Em geral, se $n = 2^{k_1} + 2^{k_1+k_2} + \ldots + 2^{k_1+k_2+\ldots+k_m}$, segue que 
 \begin{eqnarray*}
 r(n) & = & k_1 + r(n/2^{k_1}) \\
      & \ldots  & \\
@@ -1135,7 +1209,8 @@ Estão escritas no quadro \( n \) unidades consecutivas. Entre algumas delas, co
 \begin{problem*} Suponha que $x$ e $y$ são maiores que $0$. Vamos denotar o mínimo de $x, \frac{1}{y}$ e $y + \frac{1}{x}$ por $S$, isto é, $S = \min\{ x, \frac{1}{y}, y + \frac{1}{x}\}$. Qual é o valor máximo possível para $S$?
 \end{problem*}
 
-\vspace{1cm}
+%\vspace{1cm}
+\vfill
 \begin{wrapfigure}{L}{1.7cm}
 	\vspace{-10pt}
 	\includegraphics[width=2cm]{Samuel.jpeg}

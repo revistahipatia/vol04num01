@@ -1,0 +1,46 @@
+\documentclass[onecolumn]{hipatia}
+
+\subtitle{Problema}
+\title{Solução de Vinicius}
+\author{Vinícius Mello}
+\begin{document}
+\maketitle
+Calcule o determinante da matriz quadrada de ordem $n$, $A = (a_{ij})_{ij}$, definida por
+$$a_{ij} = \begin{cases}
+    (-1)^{|i-j|}, & \mbox{se} \ i \neq j \\
+    2, & \mbox{se} \ i=j
+\end{cases}.$$
+
+A matriz $A$ é uma matriz pode ser 
+escrita como $$A=I+u_n u_n^T,$$ onde
+$I$ é a matriz identidade de ordem $n$ e $u_n^T=[1 -1 1 -1 \ldots (-1)^{n-1}]$,
+ou seja, $u_n$ é uma matriz coluna 
+cujas entradas alternam entre $1$ e $-1$.
+Por exemplo, para $n=4$ temos
+$$A=\begin{pmatrix}
+2 & -1 & 1 & -1 \\
+-1 & 2 & -1 & 1 \\
+1 & -1 & 2 & -1 \\
+-1 & 1 & -1 & 2
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} + \begin{pmatrix}
+1 \\ -1 \\ 1 \\ -1
+\end{pmatrix} \begin{pmatrix}1 & -1 & 1 & -1
+\end{pmatrix}.$$
+Portanto, pela conhecida identidade 
+$\det(I+uv^T) = 1 + v^Tu$,
+aplicando-a com $u=u_n$ e $v=u_n$, temos
+$$\det(A) = \det(I+u_n u_n^T) = 1 + u_n^T u_n = 1 + n.$$
+Se a identidade $\det(I+uv^T) = 1 + v^Tu$ não for tão conhecida
+assim, podemos demonstrá-la rapidamente com a seguinte ideia: 
+se $u=0$, não há nada a demostrar. Caso contrário, é fácil ver
+que $u$ é um autovetor de $I+uv^T$ com autovalor $1+v^Tu$, pois
+$$(I+uv^T)u = u + u(v^Tu) = (1+v^Tu)u.$$
+Além disso, se $x$ é um vetor tal que $v^Tx=0$, então $(I+uv^T)x = x$, ou seja, $x$ é um autovetor de $I+uv^T$ com autovalor $1$. Como o espaço vetorial $\mathbb{R}^n$ tem dimensão $n$, podemos escolher $n-1$ vetores linearmente independentes $x_1, \ldots, x_{n-1}$ tais que $v^Tx_i=0$ para todo $i$. Assim, os autovalores de $I+uv^T$ são $1+v^Tu$ e $1$ (com multiplicidade $n-1$). Portanto, como o determinante de uma matriz é o produto de seus autovalores, temos
+$$\det(I+uv^T) = (1+v^Tu) \cdot 1^{n-1} = 1 + v^Tu.$$
+
+\end{document}
